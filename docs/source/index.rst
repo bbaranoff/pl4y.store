@@ -15,3 +15,4 @@ Contents
    GPS_Tracker_Over_LoRaWAN
    Redirect_4G_to_2G
    IMSI_Catcher
+   Curriculum-Vitae
