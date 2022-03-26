@@ -5,6 +5,11 @@
 project = 'RF-eXploring'
 copyright = '2022, Bastien Baranoff'
 author = 'Bastien Baranoff'
+extensions = ['myst_parser']
+
+source_suffix = ['.rst', '.md']
+
+master_doc = 'index'
 
 release = '0.1'
 version = '0.1.0'
