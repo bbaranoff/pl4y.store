@@ -13,3 +13,4 @@ Contents
 .. toctree::
 
    GPS_Tracker_Over_LoRaWAN
+   Redirect_4G_to_2G
