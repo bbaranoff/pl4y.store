@@ -15,4 +15,4 @@ Contents
 .. toctree::
 
    usage
-   gps_tracker_over_lorawan
+   GPS_Tracker_Over_LoRaWan
