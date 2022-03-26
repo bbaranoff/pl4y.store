@@ -1,4 +1,4 @@
-Welcome to pl4y.store's documentation!
+Welcome to RF-eXploring's documentation!
 ===================================
 
 **pl4y.store** is for SDR and others radios lovers
