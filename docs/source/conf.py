@@ -5,7 +5,6 @@
 project = 'RF-eXploring'
 copyright = '2022, Bastien Baranoff'
 author = 'Bastien Baranoff'
-extensions = ['myst_parser']
 
 source_suffix = ['.rst', '.md']
 
