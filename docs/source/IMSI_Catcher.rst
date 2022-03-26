@@ -1,7 +1,7 @@
 IMSI Catcher
 ============
 
-Script bash automation (LCR/Osmo-nitb)
+Bash script automation (LCR/Osmo-nitb)
 --------------------------------------
 
 .. code:: bash
