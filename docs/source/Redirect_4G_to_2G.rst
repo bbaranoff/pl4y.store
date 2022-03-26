@@ -324,6 +324,9 @@ Clone or download the necessary repositories :
    git clone https://git.code.sf.net/p/openlte/code openlte
    cd openlte
    git checkout a5a66ed
+   git clone https://github.com/bbaranoff/openlte_redirection_patch patch_redir
+   cp patch_redir/test.patch .
+   patch -p0 < test.patch
 
 Compilation (same order for the compilation than from the git clone(s)
 or download) cd dir_to_compile (git submodule init && git submodule
