@@ -101,7 +101,7 @@ Réseaux Sociaux
 ---------------
 
 .. raw:: html
-<img class="twitter" src="images/social fb.png"><a data-hint="33,288" target="_blank" href="https://twitter.com/bastienbaranoff"></a></img>
+    <img class="twitter" src="images/social fb.png"><a data-hint="33,288" target="_blank" href="https://twitter.com/bastienbaranoff"></a></img>
 
 `\ :raw-html-m2r:`<img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />` <https://youtube.com/bastienbaranoff>`_
 `\ :raw-html-m2r:`<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />` <https://github.com/bbaranoff>`_
