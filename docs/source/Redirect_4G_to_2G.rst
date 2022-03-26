@@ -41,8 +41,8 @@ Shell #2
    write tracking_area_code 6604
 
 (change with your ue values be careful that the earfcn is in the band
-you can have tracking_area_code via mobile testing mode *#0011# on
-samsung or*\ #\ *#4636#*\ #\* on OnePlus for example)
+you can have tracking_area_code via mobile testing mode \*#0011# on
+samsung or \*#*#4636#*#\* on OnePlus for example)
 
 Shell #2
 
