@@ -15,4 +15,4 @@ Contents
 .. toctree::
 
    usage
-   api
+   gps_tracker_over_lorawan
