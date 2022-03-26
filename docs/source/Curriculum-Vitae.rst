@@ -1,6 +1,9 @@
 Curriculum Vitae
 ================
 
+whoami
+------
+
 .. code:: python
 
    # Python program to say hello via bash cmd 
@@ -12,7 +15,7 @@ Curriculum Vitae
    os.system(cmd)
 
 Formation
-=========
+---------
 
 .. code:: bash
 
@@ -65,7 +68,7 @@ Expérience
    LoRa
 
 Compétences
-===========
+-----------
 
 .. code:: bash
 
