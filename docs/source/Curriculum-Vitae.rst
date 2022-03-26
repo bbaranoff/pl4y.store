@@ -101,8 +101,7 @@ Réseaux Sociaux
 ---------------
 
 .. raw:: html
-
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> <https://linkedin.com/in/bastienbaranoff>
+<li><a href="https://www.linkedin.com/in/bastienbaranoff">Linkedin <i class="fab li-linkedin-l" style="color:black"></i></a></li>
 
 `\ :raw-html-m2r:`<img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />` <https://youtube.com/bastienbaranoff>`_
 `\ :raw-html-m2r:`<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />` <https://github.com/bbaranoff>`_
