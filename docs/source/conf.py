@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'RF-eXploring'
+copyright = '2022, Baranoff'
+author = 'Bastien Baranoff'
 
 release = '0.1'
 version = '0.1.0'
