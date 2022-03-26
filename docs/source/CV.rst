@@ -1,2 +1,2 @@
-.. figure:: Curriculum-Vitae.pdf
+.. figure:: Curriculum-Vitae.md
    :alt: Curriculum Vitae
