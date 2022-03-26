@@ -71,31 +71,23 @@ Compétences
 
    echo "bash"
 
-.. code:: c
+\```c printf(“c”);
 
-   printf("c");
+LoRa
 
-\* LoRa
-=======
+Mobile Networks
 
-\* Mobile Networks
-==================
-
-\* RFID / NFC
-=============
+RFID / NFC
 
 .. code:: python
 
    print("python")
 
-\* Sécurisation Réseaux
-=======================
+::
 
-Haproxy ( Backend/Frontend + iptables )
----------------------------------------
-
-Audit de sécurité nmap \| OpenVAS \| nikto.pl \| metasploit \| Shodan
----------------------------------------------------------------------
+   Sécurisation Réseaux
+   -> Haproxy ( Backend/Frontend + iptables )
+   -> Audit de sécurité nmap | OpenVAS | nikto.pl | metasploit | Shodan
 
 Réseaux Sociaux
 ===============
