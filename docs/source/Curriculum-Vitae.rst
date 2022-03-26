@@ -1,9 +1,6 @@
 Curriculum Vitae
 ================
 
-whoami
-------
-
 .. code:: python
 
    # Python program to say hello via bash cmd 
@@ -15,7 +12,7 @@ whoami
    os.system(cmd)
 
 Formation
----------
+=========
 
 .. code:: bash
 
@@ -79,26 +76,26 @@ Compétences
    printf("c");
 
 \* LoRa
--------
+=======
 
 \* Mobile Networks
-------------------
+==================
 
 \* RFID / NFC
--------------
+=============
 
 .. code:: python
 
    print("python")
 
 \* Sécurisation Réseaux
------------------------
+=======================
 
 Haproxy ( Backend/Frontend + iptables )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 Audit de sécurité nmap \| OpenVAS \| nikto.pl \| metasploit \| Shodan
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------------------------
 
 Réseaux Sociaux
 ===============
