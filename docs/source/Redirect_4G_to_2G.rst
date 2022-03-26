@@ -1,15 +1,16 @@
 Redirect 4G->2G (Simplified version)
 ====================================
 
-#Install (Working on Ubuntu 20.04.4)
-
+Install (Working on Ubuntu 20.04.4)
+-----------------------------------
 .. code:: bash
 
    git clone https://github.com/bbaranoff/OpenLTE2GSM
    cd OpenLTE2GSM
    sudo bash install.sh
 
-#Running LTE Redirection Attack
+Running LTE Redirection Attack
+------------------------------
 
 Redirect attack from long term evolution (LTE 4G) to global system
 mobile (GSM 2G): article in progress
