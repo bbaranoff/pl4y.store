@@ -1,7 +1,8 @@
 Redirect 4G->2G
 ===============
 
-#Install (Working on Ubuntu 20.04.4)
+Install (Working on Ubuntu 20.04.4)
+-----------------------------------
 
 .. code:: bash
 
@@ -9,7 +10,8 @@ Redirect 4G->2G
    cd OpenLTE2GSM
    sudo bash install.sh
 
-#Running
+Running
+-------
 
 LTE Redirection Attack
 
@@ -54,7 +56,8 @@ Shell #2
 
 wait… and when you have “ok” answer in shell #2 and … enjoy !
 
-#Redirection patch code
+Redirection patch code
+----------------------
 
 .. code:: patch
 
@@ -294,7 +297,8 @@ wait… and when you have “ok” answer in shell #2 and … enjoy !
             metadata_rx.flags     = 0;
             metadata_rx.timestamp = next_tx_ts - (radio_params->N_samps_per_subfr*2); // Retard RX by 2 subframes
 
-#Install from scratch
+Install from scratch
+--------------------
 
 .. code:: bash
 
