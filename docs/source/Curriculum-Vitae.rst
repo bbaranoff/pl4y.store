@@ -71,13 +71,15 @@ Compétences
 
    echo "bash"
 
-\```c printf(“c”);
+.. code:: c
 
-LoRa
+   c/c++
 
-Mobile Networks
+   LoRa
 
-RFID / NFC
+   Mobile Networks
+
+   RFID / NFC
 
 .. code:: python
 
@@ -90,8 +92,7 @@ RFID / NFC
    -> Audit de sécurité nmap | OpenVAS | nikto.pl | metasploit | Shodan
 
 Réseaux Sociaux
-===============
-
-` <https://linkedin.com/in/bastienbaranoff>`__
+---------------
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://linkedin.com/in/bastienbaranoff)
 ` <https://youtube.com/bastienbaranoff>`__
 ` <https://github.com/bbaranoff>`__ ` <https://discord.gg/wmd5EFqzjt>`__
