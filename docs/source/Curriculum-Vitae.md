@@ -1,4 +1,6 @@
-# Curriculum Vitae
+Curriculum Vitae
+================
+
 ```python
 # Python program to say hello via bash cmd 
 # importing os module 
@@ -9,7 +11,8 @@ cmd = 'echo "Bonjour le monde"'
 os.system(cmd)
 ```
 
-# Formation
+Formation
+---------
 
 ```bash
 vi formation.c
@@ -41,7 +44,8 @@ Université de Perpignan Via Domitia
      - Validée Mention Assez Bien
 ```
 
-# Expérience
+Expérience
+----------
 
 - Petits travaux saisonniers
 
@@ -63,15 +67,17 @@ echo "bash"
 ```c
 printf("c");
 ```
-### * LoRa
-### * Mobile Networks
-### * RFID / NFC
+
+# * LoRa
+# * Mobile Networks
+# * RFID / NFC
+
 ```python
 print("python")
 ```
-### * Sécurisation Réseaux
-#### Haproxy ( Backend/Frontend + iptables )
-#### Audit de sécurité nmap | OpenVAS | nikto.pl | metasploit | Shodan
+# * Sécurisation Réseaux
+# Haproxy ( Backend/Frontend + iptables )
+# Audit de sécurité nmap | OpenVAS | nikto.pl | metasploit | Shodan
 
 
 # Réseaux Sociaux
