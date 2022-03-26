@@ -1,8 +1,8 @@
 IMSI Catcher
 ============
 
-Bash script automation (LCR/Osmo-nitb)
---------------------------------------
+Script bash automation
+----------------------
 
 .. code:: bash
 
@@ -20,6 +20,7 @@ Bash script automation (LCR/Osmo-nitb)
    echo "deb http://fr.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse" >> sources.list
    apt update
    apt install gcc-5 g++-5
+   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50 --slave /usr/bin/g++ g++ /usr/bin/g++-5
    sed -i '$ d' /etc/apt/sources.list
    apt update
    update-alternative --set gcc /usr/bin/gcc-4.9
@@ -65,12 +66,12 @@ Bash script automation (LCR/Osmo-nitb)
 
    apt install -y libortp-dev
    git clone https://github.com/osmocom/libosmo-abis
-   cd /opt/GSM/libosmo-abis
+   cd /opt/IMSI_Cacher/libosmo-abis
    autoreconf -fi && ./configure --disable-dahdi && make -j4 && make install && ldconfig
 
    cd /opt/IMSI_Catcher
    git clone https://github.com/osmocom/libosmo-netif
-   cd /opt/GSM/libosmo-netif
+   cd /opt/IMSI_Catcher/libosmo-netif
    autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
    cd /opt/IMSI_Catcher
@@ -102,7 +103,7 @@ Bash script automation (LCR/Osmo-nitb)
    ./configure
    patch -p0 < octvqe.patch
    make modules
-   cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
+   cp /opt/IMSI_Catcher/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
    cp -rn /usr/lib/modules/$(uname -r)/. /usr/src/linux-headers-$(uname -r)
    make modules_install
    depmod -a
@@ -112,7 +113,7 @@ Bash script automation (LCR/Osmo-nitb)
    cd /opt/IMSI_Catcher
    apt install bison flex -y
    git clone https://github.com/isdn4linux/mISDNuser
-   cd /opt/GSM/mISDNuser
+   cd /opt/IMSI_Catcher/mISDNuser
    make
    ./configure
    make
@@ -129,7 +130,7 @@ Bash script automation (LCR/Osmo-nitb)
    #Asterisk version (11.25.3) :
    wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-11.25.3.tar.gz
    tar zxvf asterisk-11.25.3.tar.gz
-   cd /opt/GSM/asterisk-11.25.3
+   cd /opt/IMSI_Catcher/asterisk-11.25.3
    apt install libncurses-dev libxml2-dev
    ./configure
    make
@@ -150,3 +151,48 @@ Bash script automation (LCR/Osmo-nitb)
    modprobe snd-mixer-oss
    modprobe mISDN_core
    modprobe mISDN_dsp
+
+   git clone https://github.com/bbaranoff/lcr_conf /etc/usr/local/lcr
+
+Change /etc/asterisk/sip.conf with the following
+
+::
+
+   [general]
+   bindport=5040
+   bindaddr=0.0.0.0
+   context=default
+   srvlookup=yes
+   defaultexpirey=1800
+   dtmfmode=auto
+   qualify=yes
+   register => 4XXXX5:49XXXXXXX51@diamondcard.us
+   nat=yes
+
+
+    ; Add to your sip.conf
+    ;
+    ; Diamondcard.us termination
+    [diamondcard]
+    type=peer
+    username=4XXXX5
+    fromuser=4XXXX5
+    secret=49XXXXXXX51
+    host=sip.diamondcard.us
+    disallow=all
+    allow=alaw,ulaw
+    fromdomain=sip.diamondcard.us 
+
+according to your SIP registrar
+
+Change now /etc/asterisk/extensions.conf by
+
+::
+
+   [from-lcr]
+   include => default
+    exten => _X.,1,Set(CALLERID(number)=0656565656)
+    exten => _X.,2,Monitor(wav,myfilename2)
+    exten => _X.,3,Dial(SIP/0033${EXTEN:1}@diamondcard)
+    exten => _X.,4,Congestion 
+    exten => _011.,1,Dial(LCR/ast/${EXTEN:3},60)
