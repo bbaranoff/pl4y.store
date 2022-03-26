@@ -9,8 +9,7 @@ Redirect 4G->2G (Simplified version)
    cd OpenLTE2GSM
    sudo bash install.sh
 
-#Running LTE Redirection Attack Updated with
-https://github.com/bbaranoff/openlte2GSM
+#Running LTE Redirection Attack
 
 Redirect attack from long term evolution (LTE 4G) to global system
 mobile (GSM 2G): article in progress
