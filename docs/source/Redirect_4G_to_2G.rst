@@ -1,5 +1,5 @@
-Redirect 4G->2G (Simplified version)
-====================================
+Redirect 4G->2G
+===============
 
 Install (Working on Ubuntu 20.04.4)
 -----------------------------------
