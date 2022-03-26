@@ -53,6 +53,10 @@ Shell #2
 
 wait… and when you have “ok” answer in shell #2 and … enjoy !
 
+
+From scratch
+------------
+
 .. code:: patch
 
    --- openlte_v00-20-05/liblte/src/liblte_rrc.cc  2016-10-09 22:17:50.000000000 +0200
