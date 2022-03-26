@@ -1,8 +1,8 @@
 IMSI Catcher
 ============
 
-Script bash automation
-----------------------
+Script bash automation (LCR/Osmo-nitb)
+--------------------------------------
 
 .. code:: bash
 
@@ -74,14 +74,13 @@ Script bash automation
    autoreconf -fi && ./configure && make -j4 && make install && ldconfig
 
    cd /opt/IMSI_Catcher
-   git clone https://github.com/osmocom/osmo-trx
-   cd /opt/GSM/osmo-trx
-   git checkout 1.1.0
+   git clone https://github.com/osmocom/openbsc
+   cd /opt/IMSI_Catcher/openbsc/openbsc
    autoreconf -fi && ./configure --with-lms && make -j4 && make install && ldconfig
 
    cd /opt/IMSI_Catcher
    git clone https://github.com/osmocom/osmo-bts
-   cd /opt/GSM/osmo-bts
+   cd /opt/IMSI_Catcher/osmo-bts
    git checkout 1.1.0
    autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
 
@@ -137,8 +136,6 @@ Script bash automation
    make install
    make config
    ldconfig
-
-
 
    git clone https://github.com/fairwaves/lcr
    cd lcr
