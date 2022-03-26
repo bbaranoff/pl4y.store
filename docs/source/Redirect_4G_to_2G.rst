@@ -1,16 +1,17 @@
 Redirect 4G->2G
 ===============
 
-Install (Working on Ubuntu 20.04.4)
------------------------------------
+#Install (Working on Ubuntu 20.04.4)
+
 .. code:: bash
 
    git clone https://github.com/bbaranoff/OpenLTE2GSM
    cd OpenLTE2GSM
    sudo bash install.sh
 
-Running LTE Redirection Attack
-------------------------------
+#Running
+
+LTE Redirection Attack
 
 Redirect attack from long term evolution (LTE 4G) to global system
 mobile (GSM 2G): article in progress
@@ -53,9 +54,7 @@ Shell #2
 
 wait… and when you have “ok” answer in shell #2 and … enjoy !
 
-
-From scratch
-------------
+#Redirection patch code
 
 .. code:: patch
 
@@ -134,13 +133,6 @@ From scratch
         LTE_FDD_ENB_MME_STATE_REJECT,
         LTE_FDD_ENB_MME_STATE_AUTHENTICATE,
         LTE_FDD_ENB_MME_STATE_AUTH_REJECTED,
-   @@ -126,7 +129,7 @@
-    }LTE_FDD_ENB_MME_STATE_ENUM;
-    static const char LTE_fdd_enb_mme_state_text[LTE_FDD_ENB_MME_STATE_N_ITEMS][100] = {"IDLE",
-                                                                                        "ID REQUEST IMSI",
-   -                                                                                    "REJECT",
-   +                                                                       "REJECT",
-                                                                                        "AUTHENTICATE",
                                                                                         "AUTH REJECTED",
                                                                                         "ENABLE SECURITY",
    --- openlte_v00-20-05/LTE_fdd_enodeb/src/LTE_fdd_enb_mme.cc 2017-07-29 22:15:50.000000000 +0200
@@ -301,3 +293,43 @@ From scratch
             next_tx_ts            = rx_ts + radio_params->samp_rate; // 1 second to make sure everything is setup
             metadata_rx.flags     = 0;
             metadata_rx.timestamp = next_tx_ts - (radio_params->N_samps_per_subfr*2); // Retard RX by 2 subframes
+
+#Install from scratch
+
+.. code:: bash
+
+   apt install build-essential libgmp-dev libx11-6 libx11-dev flex libncurses5 libncurses5-dev libncursesw6 libpcsclite-dev zlib1g-dev libmpfr6 libmpc3 lemon aptitude libtinfo-dev libtool shtool autoconf git-core pkg-config make libmpfr-dev libmpc-dev libtalloc-dev libfftw3-dev libgnutls28-dev libssl1.0-dev libtool-bin libxml2-dev sofia-sip-bin libsofia-sip-ua-dev sofia-sip-bin libncursesw5-dev bison libgmp3-dev alsa-oss asn1c libdbd-sqlite3 libboost-all-dev libusb-1.0-0-dev python-mako python3-mako doxygen python-docutils cmake build-essential g++ libpython-dev python-numpy python3-numpy swig libsqlite3-dev libi2c-dev libwxgtk3.0-gtk3-dev freeglut3-dev composer phpunit python3-pip python-pip
+
+   pip install requests
+   pip3 install requests
+
+Clone or download the necessary repositories :
+
+.. code:: bash
+
+   #!/bin/bash
+   git clone https://github.com/ettusresearch/uhd #tested with checkout dbaf4132f
+   git clone https://github.com/pothosware/SoapySDR #tested with checkout 67abec9
+   git clone https://github.com/nuand/BladeRF #(necessary even if you don’t have a blade) tested with checkout f03d8433
+   git clone https://github.com/pothosware/SoapyBladeRF #(only if you have a BladeRF) tested with checkout 1c1e8aa
+   git clone https://github.com/pothosware/SoapyUHD #tested with checkout 7371e68
+   git clone https://github.com/myriadrf/LimeSuite #only if you have a LimeSDR) tested with checkout a5b3a10f
+   git clone https://github.com/gnuradio/gnuradio #tested with checkout 8e2808513
+   git clone https://github.com/osmocom/gr-osmosdr #tested with checkout 4d83c60
+   wget https://tls.mbed.org/download/polarssl-1.3.7-gpl.tgz && tar zxvf polarssl-1.3.7-gpl.tgz
+   git clone https://git.code.sf.net/p/openlte/code openlte
+   cd openlte
+   git checkout a5a66ed
+
+Compilation (same order for the compilation than from the git clone(s)
+or download) cd dir_to_compile (git submodule init && git submodule
+update) -> only for gnuradio (cd host) -> only for uhd
+
+.. code:: bash
+
+   mkdir build
+   cd build
+   cmake ..
+   make -j$nproc
+   make install
+   ldconfig
