@@ -12,4 +12,4 @@ Contents
 
 .. toctree::
 
-   GPS_Tracker_Over_LoRaWan
+   GPS_Tracker_Over_LoRaWAN
