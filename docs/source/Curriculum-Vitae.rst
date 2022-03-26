@@ -100,12 +100,3 @@ Compétences
 Réseaux Sociaux
 ---------------
 
-
-.. raw:: html
-    <a href=href="https://linkedin.com/in/bastienbaranoff"    
-    <span class="normal" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"</span></a>
-    
-.. raw:: html:
-    `\ <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />` <https://youtube.com/bastienbaranoff>`_
-:raw-html-m2r:`<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /> <https://github.com/bbaranoff>
-`\ :raw-html-m2r:`<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" />` <https://discord.gg/wmd5EFqzjt>`_
