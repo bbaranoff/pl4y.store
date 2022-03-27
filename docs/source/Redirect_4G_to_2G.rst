@@ -59,7 +59,7 @@ wait… and when you have “ok” answer in shell #2 and … enjoy !
 
 .. raw:: html
 
-    <figure class="video_container"><iframe src="https://www.youtube.com/embed/GmPN6CblvaQ" frameborder="0" allowfullscreen="true"> </iframe></figure>
+    <figure class="video_container"><iframe src="https://www.youtube.com/embed/93o9XMZXGWY" frameborder="0" allowfullscreen="true"> </iframe></figure>
 
     
 Redirection patch code
