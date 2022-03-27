@@ -104,8 +104,8 @@ Réseaux Sociaux
          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Visiter le site MDN">
 
 
-       
-        <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" /> <href="https://youtube.com/bastienbaranoff">
+        <href="https://youtube.com/bastienbaranoff">
+        <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" /> 
         <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /> <https://github.com/bbaranoff>
         <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" /> <https://discord.gg/wmd5EFqzjt>
     </a>
