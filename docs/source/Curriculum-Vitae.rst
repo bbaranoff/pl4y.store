@@ -3,10 +3,6 @@
 
 Curriculum Vitae
 ================
-
-
-.. raw:: html
-    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1"></iframe>
     
 .. code-block:: python
 
