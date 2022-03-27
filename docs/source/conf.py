@@ -1,6 +1,10 @@
+from __future__ import absolute_import
+from docutils import nodes
+from docutils.parsers.rst import Directive, directives
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
+
 
 project = 'RF-eXploring'
 copyright = '2022, Bastien Baranoff'
@@ -53,10 +57,6 @@ epub_show_urls = 'footnote'
     :copyright: (c) 2012 by Danilo Bargen.
     :license: BSD 3-clause
 """
-from __future__ import absolute_import
-from docutils import nodes
-from docutils.parsers.rst import Directive, directives
-
 
 def align(argument):
     """Conversion function for the "align" option."""
