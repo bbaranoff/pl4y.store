@@ -7,10 +7,6 @@ Mise en place d’un traqueur GPS via LoRa(Wan)
 Installation du routeur sur Internet (via WiFi)
 -----------------------------------------------
 
-.. raw:: html
-
-    <figure class="video_container"><iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe></figure>
-
 N.B. : Pourquoi via WiFi ? Dans le cas particulier de l’Université de
 Perpignan Via Domitia, le FireWall “n’aime” pas les connections sur le
 port 1700 nécessaire à l’établissement de la connection routeur ->
