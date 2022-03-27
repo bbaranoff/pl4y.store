@@ -56,11 +56,9 @@ Shell #2
 
 wait… and when you have “ok” answer in shell #2 and … enjoy !
 
-.. raw:: html
+2018-01-19 by Mathias Schreiber
 
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe src="//www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
+.. youtube:: wNxO-aXY5Yw
 
 Redirection patch code
 ----------------------
