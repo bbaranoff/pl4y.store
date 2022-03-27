@@ -56,8 +56,11 @@ Shell #2
 
 wait… and when you have “ok” answer in shell #2 and … enjoy !
         
+
 .. raw:: html
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+
+    <figure class="video_container"><iframe src="https://www.youtube.com/embed/GmPN6CblvaQ" frameborder="0" allowfullscreen="true"> </iframe></figure>
+
     
 Redirection patch code
 ----------------------
