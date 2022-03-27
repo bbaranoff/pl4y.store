@@ -63,7 +63,7 @@ Expérience
   2013 - ProMES-CNRS ( 6 mois ) Automaticien
 
 * 
-  Enseignement Secondaire STI2D ( 3 mois )
+  2017 - Enseignement Secondaire STI2D ( 3 mois )
 
 * 
   2021 - ( Ne peut citer le nom de l'entreprise Clause de Confidentialité ) Télécomunications ( Téléphonie, RFID-NFC ) ( 2 mois )
