@@ -100,11 +100,8 @@ Compétences
 Réseaux Sociaux
 ---------------
 .. raw:: html
-    <a href="https://developer.mozilla.org">
-         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Visiter le site MDN">
-
-
-        <a href="https://youtube.com/bastienbaranoff"> <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" /></a>
-        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /> <https://github.com/bbaranoff>
-        <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" /> <https://discord.gg/wmd5EFqzjt>
-    
+   
+    <a href="https://www.linkedin.com/in/bastienbaranoff"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+    <a href="https://youtube.com/bastienbaranoff"> <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" /></a>
+    <a href="https://github.com/bbaranoff"> <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+    <a href="https://discord.gg/wmd5EFqzjt">    <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" /> </a>
