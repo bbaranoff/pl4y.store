@@ -73,7 +73,7 @@ Expérience
   2021 - ProMES-CNRS ( 2 mois ) : Mise en place d'un Traqueur GPS over LoRa
 
 Compétences
-===========
+-----------
 
 .. code-block:: bash
 
@@ -100,11 +100,8 @@ Compétences
 Réseaux Sociaux
 ---------------
 .. raw:: html
-    <embed>
-        <href="https://linkedin.com/in/bastienbaranoff">
-            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
-    </embed>
-        <link img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" href="https://linkedin.com/in/bastienbaranoff">
+        <img "https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" href="https://linkedin.com/in/bastienbaranoff">
+       
         <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" /> <https://youtube.com/bastienbaranoff>
         <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /> <https://github.com/bbaranoff>
         <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" /> <https://discord.gg/wmd5EFqzjt>
