@@ -4,8 +4,7 @@
 Curriculum Vitae
 ================
 .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/UaIvrDWrIWM" frameborder="0" allowfullscreen></iframe>
+    <div class="video-responsive"><iframe width="560" height="315" src="https://www.youtube.com/embed/sPvqo6QliaY" frameborder="0" allow="accelerometer;autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 .. code-block:: python
 
