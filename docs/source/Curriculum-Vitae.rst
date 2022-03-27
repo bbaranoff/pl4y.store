@@ -4,11 +4,6 @@
 Curriculum Vitae
 ================
 
-.. youtube:: anwy2MPT5RE
-    :height: 315
-    :width: 560
-    :align: left
-
 .. code-block:: python
 
    # Python program to say hello via bash cmd 
