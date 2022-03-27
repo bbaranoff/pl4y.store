@@ -4,9 +4,10 @@
 Curriculum Vitae
 ================
 
-.. raw:: html
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GmPN6CblvaQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+.. youtube:: anwy2MPT5RE
+    :height: 315
+    :width: 560
+    :align: left
 
 .. code-block:: python
 
