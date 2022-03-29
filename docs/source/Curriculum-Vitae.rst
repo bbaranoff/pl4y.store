@@ -107,4 +107,5 @@ Réseaux Sociaux
 
 So...
 
-![Connect ?](2022-03-29-211047_4.jpg)
+.. figure:: 2022-03-29-211047_4.jpg
+   :alt: Connect ?
