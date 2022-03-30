@@ -57,13 +57,13 @@ Expérience
   Petits travaux saisonniers
 
 * 
-  Electricien du Bâtiment ( 6 mois )
+  Electricien du Bâtiment
 
 * 
-  2013 - ProMES-CNRS ( 6 mois ) Automaticien
+  2013 - ProMES-CNRS Automaticien
 
 * 
-  2017 - Enseignement Secondaire STI2D ( 3 mois )
+  2017 - Enseignement Secondaire STI2D
 
 * 
   2019 - Consultant Tata Advanced Systems Limited
@@ -72,7 +72,7 @@ Expérience
   2021 - ( Ne peut citer le nom de l'entreprise Clause de Confidentialité ) Télécomunications ( Téléphonie, RFID-NFC ) ( 2 mois )
 
 * 
-  2021 - ProMES-CNRS ( 2 mois ) : Mise en place d'un Traqueur GPS over LoRa
+  2021 - ProMES-CNRS : Mise en place d'un Traqueur GPS over LoRa
 
 Compétences
 -----------
