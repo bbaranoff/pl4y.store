@@ -66,6 +66,9 @@ Expérience
   2017 - Enseignement Secondaire STI2D ( 3 mois )
 
 * 
+  2019 - Consultant Tata Advanced Systems Limited
+  
+*
   2021 - ( Ne peut citer le nom de l'entreprise Clause de Confidentialité ) Télécomunications ( Téléphonie, RFID-NFC ) ( 2 mois )
 
 * 
@@ -93,7 +96,9 @@ Compétences
 
 
 * Sécurisation Réseaux
+
   -> Haproxy ( Backend/Frontend + iptables )
+  
   -> Audit de sécurité nmap | OpenVAS | nikto.pl | metasploit | Shodan
 
 Réseaux Sociaux
