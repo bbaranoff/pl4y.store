@@ -16,8 +16,8 @@ université spécialisée en chimie.
 Les livrables:
 --------------
 
-Examen « politique de sécurité »:
-=================================
+Politique de sécurité
+---------------------
 
 -  Faites une analyse de risques, en précisant les interlocuteurs que
    vous interrogerez et les réponses probables (ou simplement que vous
@@ -31,16 +31,13 @@ Examen « politique de sécurité »:
    Labview, Matlab, COMSOL disponibles sur serveurs administratifs,
    accès l’intranet CRM Cloud, Logiciels scientifiques”
 
-“Nombres d’ordinateurs? Puissance? OS? Services ?”
+"Nombres d’ordinateurs? Puissance? OS? Services ?"
 
 Réponses attendues : Besoin de SIP pour communiquer avec des secteurs de
 recherches géographiquement eloigné. besoin de contrôle à distance pour
 travail chez soi, besoin de calculateurs, selon les avis Windows MacOS
 linux, besoin de mise en place de ticket pour les problèmes techniques
 (panne d’ordinateur)
-
-Politique de sécurité
----------------------
 
 L’identité de l’utilisateur peut être établie l’ID du VLAN et le
 matériel utilisé par son adresse MAC. On fait le choix de proscrire le
@@ -63,8 +60,8 @@ badge RFID/NFC (Wireless) Human Interface Device Mise en place de
 payload Apache/exe/… Risques interne (involontaires) : Bring Your Own
 Device Ouverture d’un .docx vérolé (CVE-2021-40444)
 
-Examen “Sécurisation d’un système informatique”:
-------------------------------------------------
+Sécurisation d’un système informatique
+--------------------------------------
 
 -  Comment structurez-vous votre réseau?
 -  Quels équipements mettez-vous et où?
