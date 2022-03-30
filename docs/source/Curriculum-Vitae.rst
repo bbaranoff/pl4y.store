@@ -69,8 +69,8 @@ Expérience
   2019 - Consultant Tata Advanced Systems Limited
   
 *
-  2021 - ( Ne peut citer le nom de l'entreprise Clause de Confidentialité ) Télécomunications ( Téléphonie, RFID-NFC ) ( 2 mois )
-
+  2021 - ( Ne peut citer le nom de l'entreprise Clause de Confidentialité ) Télécomunications ( Téléphonie, RFID-NFC )
+  
 * 
   2021 - ProMES-CNRS : Mise en place d'un Traqueur GPS over LoRa
 
