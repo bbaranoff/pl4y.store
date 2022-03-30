@@ -2,12 +2,10 @@ Examen sécurité de l’information
 ================================
 
 Descriptif
-==========
+----------
 
-::
-
-   Contexte La ville de Cabestany (Pyrénnes-Orientales) va monter son université
-   spécialisée en chimie.
+Contexte La ville de Cabestany (Pyrénnes-Orientales) va monter son
+université spécialisée en chimie.
 
 -  Elle est composée de 50 personnels administratifs et techniques et de
    50 enseignants chercheurs
@@ -16,14 +14,10 @@ Descriptif
    performance (avec 20 chercheurs et 2 secrétaires administratives).
 
 Les livrables:
-==============
+--------------
 
 Examen « politique de sécurité »:
----------------------------------
-
-::
-
-   entre 2-3 pages
+=================================
 
 -  Faites une analyse de risques, en précisant les interlocuteurs que
    vous interrogerez et les réponses probables (ou simplement que vous
@@ -39,36 +33,38 @@ Examen « politique de sécurité »:
 
 “Nombres d’ordinateurs? Puissance? OS? Services ?”
 
-::
+Réponses attendues : Besoin de SIP pour communiquer avec des secteurs de
+recherches géographiquement eloigné. besoin de contrôle à distance pour
+travail chez soi, besoin de calculateurs, selon les avis Windows MacOS
+linux, besoin de mise en place de ticket pour les problèmes techniques
+(panne d’ordinateur)
 
-   Réponses attendues : Besoin de SIP pour communiquer avec des secteurs de recherches géographiquement eloigné. besoin de contrôle à distance pour travail chez soi, besoin de calculateurs, selon les avis Windows MacOS linux, besoin de mise en place de ticket pour les problèmes techniques (panne d’ordinateur)
+Politique de sécurité
+---------------------
 
-   Politique de sécurité 
-   L’identité de l’utilisateur peut être établie l’ID du VLAN et le matériel utilisé par son adresse MAC.
-   On fait le choix de proscrire le Wifi “Public” du moins les trames en clair sur le réseau. 
-   Et l’on restreint au maximum les utilisateurs de Wifi sachant que l’on a 500 adresses IP pour 50+50+4*25+10~210 postes. On a la marge pour que les
-   enseignants (les secrétaires étant pas forcéments amenés a se deplacé avec une nécissité d’ordinateur a travers la faculté) puisse bénéficier d’un réseau Wifi.
-
-Après il faut “éduquer” sachant que les réseaux Wifi (avec les Wifis
-Pineapple, Krack attacks,ou les rogues AP) ne sont jamais complètement
-sécurisés. Préciser que si il n’y a pas le cadenas qui garanti le
-chriffrement de la page sur l’URL le mot peut être lisible par une
-personne en position d’homme du milieu. Et qu’en matière de sécurité il
-s’agit beaucoup plus souvent de conditions nécessaires à une transaction
-sécurisée et très rarement voire jamais suffisantes. Analyse de risques
+L’identité de l’utilisateur peut être établie l’ID du VLAN et le
+matériel utilisé par son adresse MAC. On fait le choix de proscrire le
+Wifi “Public” du moins les trames en clair sur le réseau. Et l’on
+restreint au maximum les utilisateurs de Wifi sachant que l’on a 500
+adresses IP pour 50+50+4*25+10~210 postes. On a la marge pour que les
+enseignants (les secrétaires étant pas forcéments amenés a se deplacé
+avec une nécissité d’ordinateur a travers la faculté) puisse bénéficier
+d’un réseau Wifi. \``\` Après il faut “éduquer” sachant que les réseaux
+Wifi (avec les Wifis Pineapple, Krack attacks,ou les rogues AP) ne sont
+jamais complètement sécurisés. Préciser que si il n’y a pas le cadenas
+qui garanti le chriffrement de la page sur l’URL le mot peut être
+lisible par une personne en position d’homme du milieu. Et qu’en matière
+de sécurité il s’agit beaucoup plus souvent de conditions nécessaires à
+une transaction sécurisée et très rarement voire jamais suffisantes.
+Analyse de risques
 
 Risques internes (volontaires): Arnaque aux numéros surtaxés Clone de
-badge RFID/NFC (Wireless) Human Interface Device
+badge RFID/NFC (Wireless) Human Interface Device Mise en place de
+payload Apache/exe/… Risques interne (involontaires) : Bring Your Own
+Device Ouverture d’un .docx vérolé (CVE-2021-40444)
 
-\``\` Mise en place de payload Apache/exe/… Risques interne
-(involontaires) : Bring Your Own Device Ouverture d’un .docx vérolé
-(CVE-2021-40444)
-
-Examen « sécurisation d’un système informatique »:
-==================================================
-
-Minimum une dizaine de pages.Vous avez carte blanche pour concevoir une
-architecture correctement sécurisée.
+Examen “Sécurisation d’un système informatique”:
+------------------------------------------------
 
 -  Comment structurez-vous votre réseau?
 -  Quels équipements mettez-vous et où?
@@ -113,22 +109,18 @@ available.
 
    adm1.univ-cabes.frdédié aux CRM (exemple : Odoo)IP_CRM=192.9.48.5
    adm2.univ-cabes.frCloud Privé Datadoghq (Supervision, Monitoring, stockage, déploiement kubernetes docker aws... )IP_CLOUD=192.49.48.4
-   adm3.univ-cabes.fr Logiciels Scientififiques (Matlab COMSOL... )
-   IP_SOFT=192.49.48.3
-
-::
-
+   adm3.univ-cabes.fr Logiciels Scientififiques (Matlab COMSOL... ) IP_SOFT=192.49.48.3
    adm4.univ-cabes.frAuthentification (LDAP, Active Directory)IP_AUTH=192.49.48.2
    adm5.univ-cabes.frVirtualisation, Monitoring, Sécurisation, Tests et détecteurs d’intrusions.IP_SEC=192.49.48.1
-   Chaque personnel a un ordinateur individuel sous Windows. On choisi le sous-réseau192.49.48.0/24pour le personnel et les chercheurs
-   50 personnels administratifs et techniques
 
-1 Poste Windows/Personne
+Chaque personnel a un ordinateur individuel sous Windows. On choisi le
+sous-réseau192.49.48.0/24pour le personnel et les chercheurs 50
+personnels administratifs et techniques 1 Poste Windows/Personne
 
 Les étudiants ont 4 salles de TP informatique pour 25 ordinateurs. On
 choisi le sous-réseau 192.49.49.0/24 Il y a aura un serveur de fichiers
 ftp.univ-cabes.fr port 21 Une IP_DMZ 192.49.48.6 Un Frontend 192.49.48.7
-puis un backend 192.49.48.8 comprennant une messagerie interne Serveur
+puis un backend 192.49.48.8 comprennant : une messagerie interne Serveur
 Psotfix/ client RoundCUBE SMTP port 465 Authenticated SMTP over SSL Port
 (TLS) Non (SSL) Oui smtp.univ-cabes.fr Serveur imap Port SSL : 993
 imap.univ-cabes.fr DNS port 53 dnsmasq Web port 80 443 Serveur web Nginx
@@ -138,10 +130,10 @@ par l’id du VLAN.
 
 ::
 
-   IP_BACKEND=192.49.48.
-   IP_FRONTEND=192.49.48.
-   IP_DMZ=192.49.48.
-   IP_PUB_DMZ=12.34.56.
+   IP_BACKEND=192.49.48.8
+   IP_FRONTEND=192.49.48.7
+   IP_DMZ=192.49.48.6
+   IP_PUB_DMZ=12.34.56.78
 
 ::
 
@@ -154,7 +146,6 @@ par l’id du VLAN.
    iptables -A INPUT -p tcp -s $IP_FRONTEND --dport 21 -j ACCEPT
    iptables -A INPUT -p tcp -s $IP_SEC --dport 22 -j ACCEPT
    iptables -P INPUT DROP _# Drop everything we don't accept_
-
    ./protect_frontend.sh
    iptables -P FORWARD DROP _# we aren't a router_
    iptables -A INPUT -m state --state INVALID -j DROP
@@ -166,7 +157,9 @@ par l’id du VLAN.
    iptables -A INPUT -p tcp --dport 443 -j ACCEPT
    iptables -P INPUT DROP _# Drop everything we don't accept_
 
-   remise_a_zero.sh
+remise_a_zero.sh
+
+::
 
    iptables -F
    iptables -X
@@ -215,69 +208,85 @@ Serveur web Nginx backend /etc/apache2/nginx/000-default.cfg
        }
    }
 
-   Serveur Frontend :
+Serveur Frontend :
 
-   Reverse Proxy
+Reverse Proxy
 
-   haproxy.cfg
-
-timeouts so that long-running CLI commands will work.
-=====================================================
-
-global maxconn 256 log 127.0.0.1 local0 debug
-
-defaults log global maxconn 200 timeout connect 5s timeout client 5min
-timeout server 5min
-
-frontend Local_Server bind $IP_FRONTEND:443 ssl crt
-/etc/letsencrypt/live/univ-cabes.fr/fullchain.pem acl is-blocked-ip src
--f /etc/haproxy/blocklisted.ips http-request deny if is-blocked-ip # use
-a stick table to track request rates stick-table type ip size 100k
-expire 2m store http_req_rate(1m) http-request track-sc0 src # Deny if
-they exceed the limit acl too_many_requests sc_http_req_rate(0) gt 20
-http-request deny deny_status 429 if too_many_requests acl
-network_allowed src $IP_PUB_DMZ tcp-request connection reject if
-!network_allowed option tcplog mode tcp default_backend web backend web
-mode tcp option ssl-hello-chk server web $IP_BACKEND:443 ssl verify none
+haproxy.cfg
 
 ::
 
+   # timeouts so that long-running CLI commands will work.
+   global
+   maxconn 256
+   log 127.0.0.1 local0 debug
 
-   /etc/apache2/sites-enabled/000-default.cfg
+   defaults
+   log global
+   maxconn 200
+   timeout connect 5s
+   timeout client 5min
+   timeout server 5min
 
-<VirtualHost \*:80> ServerAdmin webmaster@localhost DocumentRoot
-/var/www/html Redirect permanent / https://univ-cabes.fr/ ErrorLog
-${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log
-combined
+   frontend Local_Server
+   bind $IP_FRONTEND:443 ssl crt /etc/letsencrypt/live/univ-cabes.fr/fullchain.pem
+   acl is-blocked-ip src -f /etc/haproxy/blocklisted.ips
+   http-request deny if is-blocked-ip
+   # use a stick table to track request rates
+   stick-table type ip size 100k expire 2m store http_req_rate(1m)
+   http-request track-sc0 src
+   # Deny if they exceed the limit
+   acl too_many_requests sc_http_req_rate(0) gt 20
+   http-request deny deny_status 429 if too_many_requests
+   acl network_allowed src $IP_PUB_DMZ
+   tcp-request connection reject if !network_allowed
+   option tcplog
+   mode tcp
+   default_backend web
+   backend web
+   mode tcp
+   option ssl-hello-chk
+   server web $IP_BACKEND:443 ssl verify none
+
+/etc/apache2/sites-enabled/000-default.cfg
 
 ::
 
+   <VirtualHost *:80>
+       ServerAdmin webmaster@localhost
+       DocumentRoot /var/www/html
+       Redirect permanent / https://univ-cabes.fr/
+       ErrorLog ${APACHE_LOG_DIR}/error.log
+       CustomLog ${APACHE_LOG_DIR}/access.log combined
+   </VirtualHost>
 
-   Le Poste 192.49.48.1 a accès à tous les réseaux (réseau Sécurisation) et toutes
-   les machines
-   Le sous-réseau 192.49.48.0/24 a accès a l’ensemble du réseau 192.49.49.0/24
-   (accès au cloud, CRM logiciels scientifiques, Web, messagerie, DNS)
-   Le sous réseau 192.49.49.0/24 (réseau étudiant n’a accès qu’à son propre sous
-   réseau) on laissera tout de même un accès au “cloud” et aux “logiciels scientifiques”
-   sur demande de l’enseignant avec un iptables FORWARD, plus un accès à la
-   messagerie (accès RoundCUBE) et au Web bien sûr en comptant que tout le
-   monde est sensé disposer de cet accès.
-
-.————————————————. \|.———. .————. \| \||Etudiants|——>|Serveurs \| .——–.
-\| \|.———. \|FTP,SMTP,DNS\| \|Web \| \| \|.———. \|Web_backend
-\|<->|Frontend|<->|<->RENATER<->(Internet) \||Scolarité|——>|Imap Adm1-5
-\| .——–. \| DMZ \|.———. .————. \| .————————————————. Intranet
+Le Poste 192.49.48.1 a accès à tous les réseaux (réseau Sécurisation) et
+toutes les machines Le sous-réseau 192.49.48.0/24 a accès a l’ensemble
+du réseau 192.49.49.0/24 (accès au cloud, CRM logiciels scientifiques,
+Web, messagerie, DNS) Le sous réseau 192.49.49.0/24 (réseau étudiant n’a
+accès qu’à son propre sous réseau) on laissera tout de même un accès au
+“cloud” et aux “logiciels scientifiques” sur demande de l’enseignant
+avec un iptables FORWARD, plus un accès à la messagerie (accès
+RoundCUBE) et au Web bien sûr en comptant que tout le monde est sensé
+disposer de cet accès.
 
 ::
 
-   - Quelles procédures mettez-vous en place?
-   ◦Administratives?
+   .------------------------------------------------.
+   |.---------.       .------------.                |
+   ||Etudiants|------>|Serveurs    |   .--------.   |
+   |.---------.       |FTP,SMTP,DNS|   |Web     |   |
+   |.---------.       |Web_backend |<->|Frontend|<->|<->RENATER<->(Internet)
+   ||Scolarité|------>|Imap Adm1-5 |   .--------.   |                 DMZ
+   |.---------.       .------------.                |
+   .------------------------------------------------.
+                       Intranet
+
+-  Quelles procédures mettez-vous en place? -> Administratives?
    Contacter RENATER leur demander une ligne avec du 1Gb/s soit
-
-   ((1GB/s)/500 Postes)=2Mb/s
-
-pour tous les postes en condition maximum d’utilisation). \``\` Vérifier
-si les mesures sont conformes avec l’ISO-27001
+   ((1GB/s)/500 Postes)=2Mb/s pour tous les postes en condition maximum
+   d’utilisation). Vérifier si les mesures sont conformes avec
+   l’ISO-27001
 
 -> Procédures techniques
 
