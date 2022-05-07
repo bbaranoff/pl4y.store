@@ -1,194 +1,133 @@
-Telcos
-======
+Telcos 2G ClaypsoBTS
+====================
+
+* Kernel install
+
 .. code:: bash
 
    #!/bin/bash
-   sudo su
-   rm -rf /opt/GSM
-   mkdir /opt/GSM
-   cd /opt/GSM
-   read -p "Architecture arm64 or amd64 ?"
+   apt update && apt upgrade -y
+   rm -rf /opt/IMSI_Catcher
+   mkdir /opt/IMSI_Catcher
+   cd /opt/IMSI_Catcher
+   apt remove linux-image*
+   read -p "Architecture arm64 or amd64 ? " ARCH
    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300_5.3.0-050300.201909152230_all.deb
    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-headers-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-image-unsigned-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.3/linux-modules-5.3.0-050300-generic_5.3.0-050300.201909152230_$ARCH.deb
-   read -p "reboot and choose kernel 5.3 ? Ctrl-C to exit"
+   apt install linux-base
    sudo dpkg -i *.deb
+   update-grub
+   update-initramfs -u
+   update-grub
+   read -p "reboot and choose kernel 5.3 ? Ctrl-C to exit/Enter to reboot"
    reboot
-   apt update && sudo apt upgrade -y
-   apt install -y libusb-1.0-0-dev libuhd-dev uhd-host cmake autoconf make
-   git clone https://github.com/pothosware/SoapySDR
-   cd /opt/GSM/SoapySDR
-   mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
-   cd /opt/GSM
-   sudo apt install -y libtool
-   git clone https://github.com/pothosware/SoapyUHD
-   cd /opt/GSM/SoapyUHD
-   mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
 
-   cd /opt/GSM
-   git clone https://github.com/myriadrf/LimeSuite
-   cd /opt/GSM/LimeSuite
-   cd build && cmake .. && make -j4 && make install && ldconfig
+* Main install
 
-   cd /opt/GSM
-   echo "export  UHD_MODULE_PATH=/usr/lib/uhd/modules" >> /root/.bashrc
+.. code:: bash
 
-   sudo apt install -y cpufrequtils
-
-   sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
-   git clone https://github.com/nuand/BladeRF
-   cd /opt/GSM/BladeRF
-   mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/pothosware/SoapyBladeRF
-   cd /opt/GSM/SoapyBladeRF
-   mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
-
-   sudo apt install -y python3-pip pcscd pcsc-tools libpcsclite-dev python3-pyscard
-   sudo service pcscd start
-   cd /opt/GSM
-   git clone https://github.com/osmocom/pySim
-   cd /opt/GSM/pySim
-   pip3 install pytlv serial jsonpath-ng construct cmd2 -U
-
-   cd /opt/GSM
-   git clone https://github.com/srsLTE/srsLTE
-   cd /opt/GSM/srsLTE
-   mkdir build && cd build && cmake .. && make -j4 && make install && ldconfig
-   ./srslte_install_configs.sh user
-   wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/epc.conf
-   wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/enb.conf
-   wget https://raw.githubusercontent.com/bbaranoff/srslte-rpi4/main/user_db.csv
-   cp enb.conf /root/.config/srslte/enb.conf
-   cp epc.conf /root/.config/srslte/epc.conf
-   cp user_db.csv /root/.config/srslte/user_db.csv
-
-
-   cd /opt/GSM
-   apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
-   git clone https://github.com/osmocom/libosmocore
-   cd /opt/GSM/libosmocore
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   apt install -y libortp-dev
-   git clone https://github.com/osmocom/libosmo-abis
-   cd /opt/GSM/libosmo-abis
-   autoreconf -fi && ./configure --disable-dahdi && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/libosmo-netif
-   cd /opt/GSM/libosmo-netif
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-hlr
-   apt install -y libsqlite3-dev
-   cd /opt/GSM/osmo-hlr
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-mgw
-   cd /opt/GSM/osmo-mgw
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone git://git.osmocom.org/libgtpnl.git
-   cd /opt/GSM/libgtpnl
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/libosmo-sccp
-   cd /opt/GSM/libosmo-sccp
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-ggsn
-   cd /opt/GSM/osmo-ggsn
-   autoreconf -fi && ./configure --enable-gtp-linux && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   apt install -y libc-ares-dev
-   git clone https://github.com/osmocom/osmo-sgsn
-   cd /opt/GSM/osmo-sgsn
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-msc
-   apt install -y libdbi-dev
-   cd /opt/GSM/osmo-msc
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-bsc
-   cd /opt/GSM/osmo-bsc
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   apt install -y libsofia-sip-ua-glib-dev
-   git clone https://github.com/osmocom/osmo-sip-connector
-   cd /opt/GSM/osmo-sip-connector
-   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-trx
-   cd /opt/GSM/osmo-trx
-   git checkout 1.1.0
-   autoreconf -fi && ./configure --with-lms && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/osmocom/osmo-bts
-   cd /opt/GSM/osmo-bts
-   git checkout 1.1.0
-   autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
-
-   cd /opt/GSM
-   git clone https://github.com/bbaranoff/osmocom-nitb-standalone /etc/osmocom
-   cp -r /usr/local/bin/. /usr/bin
-   apt install libdbd-sqlite3
-   mkdir /var/lib/osmocom
-   wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/osmo-msc.service
-   cp osmo-msc.service /lib/systemd/system/osmo-msc.service
-   systemctl daemon-reload
-   cd /etc/osmocom
-   ./osmo-all enable
-
-   cd /opt/GSM
-   wget https://nuand.com/downloads/yate-rc-2.tar.gz
-   tar xfz yate-rc-2.tar.gz
-   cd yate
-   wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/endian.patch
-   patch -p1 < endian.patch
-
-   ./autogen.sh
-   ./configure
-   make
-   make install
-   ldconfig
-
-   cd /opt/GSM/yatebts
-
-   ./autogen.sh
-   ./configure
-   make
-   make install
-   ldconfig
-   wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/ybts.conf
-   cp ybts.conf /usr/local/etc/yate/ybts.conf
-
-
-   cd /lib/modules/$(uname -r)/build/certs
-   openssl req -new -x509 -newkey rsa:2048 -keyout signing_key.pem -outform DER -out signing_key.x509 -nodes -subj "/CN=Owner/"
-   apt install -y gcc-9 g++-9 gcc-7 g++-7 gcc-10 g++-10
+   #!/bin/bash
+   apt install gcc-9 g++-9 gcc-10 g++-10 git -y
+   echo "deb http://fr.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse" >> /etc/apt/sources.list
+   apt update
+   apt install gcc-4.9 g++-4.9 gcc-7 g++-7 -y
+   sed -i '$ d' /etc/apt/sources.list
+   apt update
+   apt install -y build-essential libusb-1.0-0-dev libsqlite3-dev libsctp-dev libgmp-dev libx11-6 libx11-dev flex libncurses5 libdbd-sqlite3 libdbi-dev libncurses5-dev libncursesw5 libpcsclite-dev zlib1g-dev libmpfr4 libmpc3 lemon aptitude libtinfo-dev libtool shtool autoconf git-core pkg-config make libmpfr-dev libmpc-dev libtalloc-dev libfftw3-dev libgnutls28-dev libtool-bin libxml2-dev sofia-sip-bin libsofia-sip-ua-dev sofia-sip-bin libncursesw5-dev bison libgmp3-dev alsa-oss
+   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 49 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
-   cd /opt/GSM/
+   echo "deb http://fr.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse" >> /etc/apt/sources.list
+   apt update
+   apt install -y gcc-5 g++-5 libssl1.0-dev
+   update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+   sed -i '$ d' /etc/apt/sources.list
+   apt update
+   update-alternatives --set gcc /usr/bin/gcc-4.9
+   apt remove texinfo
+   mkdir /opt/IMSI_Catcher
+   cd /opt/IMSI_Catcher
+   wget http://ftp.gnu.org/gnu/texinfo/texinfo-4.13.tar.gz
+   tar xvf texinfo-4.13.tar.gz
+   cd texinfo-4.13
+   ./configure
+   make
+   make install
+   #git clone https://github.com/axilirator/gnu-arm-installer.git gnuarm
+   #cd gnuarm
+   ##Run the Scripts
+   #./download.sh
+   #./build.sh
+   #export PATH=$PATH:/root/gnuarm/install/bin
+   # Now you have cross-compiler ready you can build osmocom with your firmware
+   update-alternatives --set gcc /usr/bin/gcc-9
+   cd /opt/IMSI_Catcher
+   git clone git://git.osmocom.org/libosmocore.git
+   cd libosmocore
+   git checkout 1.3.0
+   autoreconf -i
+   ./configure
+   make
+   make install
+   ldconfig
+   cd /opt/IMSI_Catcher
+   git clone git://git.osmocom.org/libosmo-dsp.git
+   cd libosmo-dsp
+   autoreconf -i
+   ./configure
+   make
+   make install
+   cd /opt/IMSI_Catcher
+   update-alternatives --set gcc /usr/bin/gcc-5
+   git clone https://github.com/osmocom/osmocom-bb trx
+   cd trx
+   git checkout jolly/testing
+   cd src
+   wget https://github.com/bbaranoff/telco_install_sh/raw/main/trx.highram.bin
+   sed -i -e  's/#CFLAGS += -DCONFIG_TX_ENABLE/CFLAGS += -DCONFIG_TX_ENABLE/g' target/firmware/Makefile
+   make HOST_layer23_CONFARGS=--enable-transceiver nofirmware
+   cd /opt/IMSI_Catcher
+   update-alternatives --set gcc /usr/bin/gcc-9
+   apt install -y libortp-dev
+   cd /opt/IMSI_Catcher
+   git clone https://github.com/osmocom/libosmo-abis
+   cd /opt/IMSI_Catcher/libosmo-abis
+   git checkout 0.8.1
+   autoreconf -fi && ./configure --disable-dahdi && make -j4 && make install && ldconfig
+
+   cd /opt/IMSI_Catcher
+   git clone https://github.com/osmocom/libosmo-netif
+   cd /opt/IMSI_Catcher/libosmo-netif
+   git checkout 0.7.0
+   autoreconf -fi && ./configure && make -j4 && make install && ldconfig
+
+   cd /opt/IMSI_Catcher
+   git clone https://github.com/osmocom/openbsc
+   cd /opt/IMSI_Catcher/openbsc/openbsc
+   autoreconf -fi && ./configure --with-lms && make -j4 && make install && ldconfig
+
+   cd /opt/IMSI_Catcher
+   git clone https://github.com/osmocom/osmo-bts
+   cd /opt/IMSI_Catcher/osmo-bts
+   git checkout 0.8.1
+   autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
+
+   cd /opt/IMSI_catcher
+   wget https://github.com/bbaranoff/telco_install_sh/raw/main/opencore-amr-0.1.5.tar.gz
+   tar xvzf opencore-amr-0.1.5.tar.gz
+   cd opencore-amr-0.1.5
+   ./configure
+   make -j$(nproc)
+   make install
+   ldconfig
+   cd /lib/modules/$(uname -r)/build/certs
+   openssl req -new -x509 -newkey rsa:2048 -keyout signing_key.pem -outform DER -out signing_key.x509 -nodes -subj "/CN=Owner/"
+   cd /opt/IMSI_Catcher/
    git clone https://github.com/isdn4linux/mISDN
-   cd /opt/GSM/mISDN
+   cd /opt/IMSI_Catcher/mISDN
    rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/hardware/mISDN
    rm -Rf /lib/modules/$(uname -r)/kernel/drivers/isdn/mISDN/
    wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/octvqe.patch
@@ -198,17 +137,17 @@ Telcos
    ./configure
    patch -p0 < octvqe.patch
    make modules
-   cp /opt/GSM/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
+   cp /opt/IMSI_Catcher/mISDN/standalone/drivers/isdn/mISDN/modules.order /usr/src/linux-headers-$(uname -r)
    cp -rn /usr/lib/modules/$(uname -r)/. /usr/src/linux-headers-$(uname -r)
    make modules_install
    depmod -a
 
    update-alternatives --set gcc /usr/bin/gcc-7
 
-   cd /opt/GSM
+   cd /opt/IMSI_Catcher
    apt install bison flex -y
    git clone https://github.com/isdn4linux/mISDNuser
-   cd /opt/GSM/mISDNuser
+   cd /opt/IMSI_Catcher/mISDNuser
    make
    ./configure
    make
@@ -220,53 +159,50 @@ Telcos
    make install
    ldconfig
 
-   update-alternatives --set gcc /usr/bin/gcc-10
-
-   cd /opt/GSM
+   update-alternatives --set gcc /usr/bin/gcc-9
+   cd /opt/IMSI_Catcher
+   #Asterisk version (11.25.3) :
    wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-11.25.3.tar.gz
    tar zxvf asterisk-11.25.3.tar.gz
-   cd /opt/GSM/asterisk-11.25.3
+   cd /opt/IMSI_Catcher/asterisk-11.25.3
    apt install libncurses-dev libxml2-dev
+   wget https://raw.githubusercontent.com/bbaranoff/telco_install_sh/main/tcptls.patch
+   patch -p1 < tcptls.patch
    ./configure
-   make
+   make -j$(nproc)
    make install
+   make samples
    make config
    ldconfig
-
-   cd /opt/GSM
-   git clone http://git.eversberg.eu/lcr.git
-   cd /opt/GSM/lcr
+   update-alternatives --set gcc /usr/bin/gcc-5
+   cd /opt/IMSI_Catcher
+   git clone https://github.com/fairwaves/lcr
+   cd lcr
    wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/ast_lcr.patch
-   wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sip_gcc.patch
    patch -p0 < ast_lcr.patch
-   patch -p0 < sip_gcc.patch
-   ./autogen.sh
-   ./configure --with-sip --with-gsm-bs --with-gsm-ms --with-asterisk --with-sip
+   autoreconf -i
+   ./configure --with-sip --with-gsm-bs --with-gsm-ms --with-asterisk
    make
    make install
    ldconfig
-
-   apt install php apache2 -y
-   cp -r /opt/GSM/
-   bts/nipc/web /var/www/html/nipc
-   chmod -R a+rw /usr/local/etc/yate/
-
-   apt install alsa-oss
-   apt install --reinstall linux-modules-$(uname -r) -y
+   cp chan_lcr.so /usr/lib/asterisk/modules/
+   apt-get install alsa-oss
+   modprobe snd-pcm
+   modprobe snd-mixer-oss
+   modprobe mISDN_core
+   modprobe mISDN_dsp
+   rm -rf /usr/local/etc/lcr
+   mkdir -p /usr/local/etc/
+   git clone https://github.com/bbaranoff/lcr_conf /usr/local/etc/lcr/
+   sudo chmod 755 /usr/local/etc/lcr
+   sudo chmod 644 /usr/local/etc/lcr/*
    cd /etc/asterisk
-   wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/extensions.conf
-   wget https://raw.githubusercontent.com/bbaranoff/PImpMyPi/main/sip.conf
-   reboot
-
-   #do by hand for gprs with yate
-   echo 1 > /proc/sys/net/ipv4/ip_forward
-   iptables -A POSTROUTING -t nat -s 192.168.99.0/24 ! -d 192.168.99.0/24 -j MASQUERADE
-   yate
-
-
-   #do by hand for srslte
-   cd /opt/GSM
-   ./SIM.sh [pin-adm] [acc]
-   bladeRF-cli -l /opt/GSM/hostedxA4.rbf (or xA9, x115,x40)
-   srsepc
-   srsenb
+   mv sip.conf sip.conf.bak
+   mv extensions.conf extensions.conf.bak
+   wget https://raw.githubusercontent.com/bbaranoff/telco_install_sh/main/sip.conf
+   wget https://raw.githubusercontent.com/bbaranoff/telco_install_sh/main/extensions.conf
+   mkdir /root/nitb
+   cd /root/nitb
+   wget https://raw.githubusercontent.com/bbaranoff/telco_install_sh/main/openbsc.cfg
+   wget https://raw.githubusercontent.com/bbaranoff/telco_install_sh/main/nitb.sh
+   chmod +x nitb.sh
