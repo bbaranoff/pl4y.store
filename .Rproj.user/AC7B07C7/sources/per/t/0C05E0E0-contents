@@ -1,0 +1,62 @@
+---
+title: "Candidature Thèse de Doctorat - Université de Perpignan Via Domitia"
+author: "Bastien Baranoff"
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyfoot[CO,CE]{RadioFrequencies Protocols vs Energy}
+output:
+  pdf_document:
+    toc: true
+    df_print: kable
+  word_document: default
+date: "`r Sys.Date()`"
+bibliography: Mon_super_rapport.bib
+---
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE}
+library(pander)
+library(knitr)
+library(memisc)
+library(stargazer)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\newpage
+
+**Lettre de Motivation :**
+---------------------------------
+
+&nbsp;&nbsp; Bonjour je me présente à vous dans l'idée de faire un thèse dans votre établissement. Je postule dans le but de partager ma passion (les télécommunications via Radio-Fréquence).
+  
+&nbsp;&nbsp; Je suis intéressé par les tests d'intrusion du point de vue des ondes éléctromagnétiques qui nous entourent.
+  
+&nbsp;&nbsp; En effet étant donné que la plupart des étudiants et professionnels de la cybersécurité se focalisent sur l'aspect TCP/IP, j'ai décidé de prendre un contre-pied en me concentrant sur le côté radio-télécommunications. La résultante est que ces mêmes protocoles se révèlent vite faillibles. Jusqu'au point où cela me donne l'impression que le TCP/IP fait presque office de leurre dans le sens où la plupart des gens vont de front vers cet ensemble de protocoles (le TCP/IP) alors que dans les radio-télécommunications les protocoles qui y appartiennent se révèlent vite défaillants. Alors que ces attaques (via les ondes éléctromagnétiques) par exemple les attaques via canaux auxiliaires (par exemple Spectre) donnent des preuves de concepts très satisfaisantes.
+  
+&nbsp;&nbsp; Je fais de la radio depuis 10 ans, au moment où la radio défine logicielle s'est popularisé avec l'avenement des Elonics E4000 qui permettaient à l'aide d'un dongle de réception TV (DVB-T) de renifler les trames GSM ou ADS-B (balises d'aviation civile) ou bien d'autres protocoles encore. En effet une radio définie logicielle démodule les protocoles de manière logicielle et de ce fait n'est pas limité à un ou à un certains nombre de protocoles.
+  
+&nbsp;&nbsp; Commençant à m'intéresser à tout cela j'ai découvert par la suite la suite logicielle développée par Osmocom. Cette suite logicielle à pour but d'implémenter les protocoles de téléphonie mobile (Osmocom = Open Source MObile COMmunications). En passant de la puce modem (farouchement gardée propriétaire sur quasiment tout les mobiles que ce soit de Quectel, Qualcomm, etc...) de Motorola; dont le processus de fonctionnement a été trouvé à partir du produit fini (par ingénieurie inverse). De la même façon pour les antennes relais jusqu'au réseau de connexion inter-opérateurs le SS7.
+
+&nbsp;&nbsp; La plupart de ces protocoles étant propriétaires ils sont vulnérables par leur implémentation même. Sachant que la normalisation et standardisation de l'interconnexion de boîtes noires est irréalisable. Sachant que la solution de la sécurisation d'un protocole uniquement par la non-diffusion du code source n'est pas spécialement adaptée, la sécurisation d'un protocole se fait par des sources liibres et un chiffrement adaptés à l'aide de  clefs privées secretes mais pas par des sources fermées (forcement réversibles).
+
+&nbsp;&nbsp; De plus les services spéciaux devants eux aussi par principe et par déduction (et selon ceratines sources) installer des portes dérobées. En prenant en compte ceci Osmocom (et d'autres) révèle un manquement dans la conduite de certains opérateurs face à la situation. Pour faire un état des lieux :
+
+- On a de grandes chances de pouvoir effectuer des écoutes via le réseau SS7 (Karten Nohl + Luca Melette)
+- On peut renifler et déchiffrer les trames GSM-GPRS-EDGE si elle sont chiffrées avec le A5/1 (Karsten Nohl)
+- On peut se faire passer pour une antenne relai 2G simplement en copiant certaines de leur caractéristiques (pas besoin de casser un chiffrement) et de ce fait intercepter les communications sortantes.
+- On peut récuperer un numéro de téléphone à la simple condition qu'il soit dans un rayon d'action RF.
+- On peut envoyer des SMS "craftés" afin de donner des ordres à une SIM à distance (récuperer de ce fait SMS etc...) -> attaque SimJacker
+- etc...
+
+Fort d'une experience (amateur, mais intense) d'une dizaine d'années dans ce domaine. Je pense être sur ce sujet (ou un sujet connexe) un atout pour une structure sur le plan de la suretée des communications hertziennes.
+
+&nbsp;&nbsp; Pour être arrivé à ces résultats j'ai dû :
+
+- Comprendre en parti des codes de plus de 10000 lignes
+- Faire marcher du matériel (de fortune parfois) comme je poyuvais. Parfois sans aide ni support.
+- Comprendre les principes de rétrocompatibilité sur linux (quand on doit faire marcher des codes vieux de 10 ans sans commit parfois)
+- Me renouveller et créer du contenu original sur YouTube
+- Faire marcher le relationnel que j'ai pu me créer à différents niveaux
+- Etre travailleur et motivé pour essayer d'atteindre un certaine constance dans mes efforts
+
+Bonne Journée et merci à vous tous, Bastien Baranoff

@@ -1,8 +1,7 @@
 Redirect 4G->2G
 ===============
 
-Install (Working on Ubuntu 20.04.4)
------------------------------------
+#Install (Working on Ubuntu 20.04.4)
 
 ```bash
 git clone https://github.com/bbaranoff/OpenLTE2GSM
@@ -10,8 +9,7 @@ cd OpenLTE2GSM
 sudo bash install.sh
 ```
 
-Running
--------
+#Running
 
 LTE Redirection Attack
 
@@ -50,8 +48,7 @@ start
 ```
 wait… and when you have “ok” answer in shell #2  and … enjoy !
 
-Redirection patch code
-----------------------
+#Redirection patch code
 
 ```patch
 --- openlte_v00-20-05/liblte/src/liblte_rrc.cc	2016-10-09 22:17:50.000000000 +0200
@@ -291,8 +288,7 @@ Redirection patch code
          metadata_rx.timestamp = next_tx_ts - (radio_params->N_samps_per_subfr*2); // Retard RX by 2 subframes
 ```
 
-Install from scratch
---------------------
+#Install from scratch
 
 ```bash
 apt install build-essential libgmp-dev libx11-6 libx11-dev flex libncurses5 libncurses5-dev libncursesw6 libpcsclite-dev zlib1g-dev libmpfr6 libmpc3 lemon aptitude libtinfo-dev libtool shtool autoconf git-core pkg-config make libmpfr-dev libmpc-dev libtalloc-dev libfftw3-dev libgnutls28-dev libssl1.0-dev libtool-bin libxml2-dev sofia-sip-bin libsofia-sip-ua-dev sofia-sip-bin libncursesw5-dev bison libgmp3-dev alsa-oss asn1c libdbd-sqlite3 libboost-all-dev libusb-1.0-0-dev python-mako python3-mako doxygen python-docutils cmake build-essential g++ libpython-dev python-numpy python3-numpy swig libsqlite3-dev libi2c-dev libwxgtk3.0-gtk3-dev freeglut3-dev composer phpunit python3-pip python-pip
@@ -318,9 +314,6 @@ wget https://tls.mbed.org/download/polarssl-1.3.7-gpl.tgz && tar zxvf polarssl-1
 git clone https://git.code.sf.net/p/openlte/code openlte
 cd openlte
 git checkout a5a66ed
-git clone https://github.com/bbaranoff/openlte_redirection_patch patch_redir
-cp patch_redir/test.patch .
-patch -p0 < test.patch
 ```
 
 Compilation (same order for the compilation than from the git clone(s) or download)
