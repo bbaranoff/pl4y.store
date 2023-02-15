@@ -1,6 +1,6 @@
-****************************************
-Welcome to RF-eXploring's documentation!
-****************************************
+==============
+Welcome (Back)
+==============
 
 .. figure:: ptisetup.jpeg
    :alt: Setup
@@ -10,9 +10,6 @@ Welcome to RF-eXploring's documentation!
 .. note::
 
    This project is under active development.
-
-Contents
---------
 
 .. toctree::
 
