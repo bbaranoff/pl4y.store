@@ -1,11 +1,5 @@
-
-----
-
-title: "Works"
-author: "Bastien Baranoff"
-header-includes:
-
-----
+Works :
+=======
 
 .. code-block::
 
