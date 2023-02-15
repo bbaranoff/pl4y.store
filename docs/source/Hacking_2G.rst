@@ -1,26 +1,30 @@
-   ---------------
-   **2G Attack :**
-   ---------------
+---------------
+**2G Attack :**
+---------------
+
+An active 2G active should look like this :
+
+![diagrone.png.png)
+
+.. image:: diagram_2G_act.png
+   :target: diagram_2G_act.png
+   :alt: 2G Attack Active
 
 
+Ths is the flow of a 2G active attack
 
-   An active 2G active should look like this :
+Hacking 2G (Fooling MS : Mobile Station, the 2G phone)
+------------------------------------------------------
 
+The MS doesn't ask authentication from BTS (Base Transceiver Station, the relay antenna). So what to do to intercept ? Be a BTS... and that's all just spoof the public values of the BTS (mcc,mnc exemple 208,15 for FreeMobile 208,01 for Orange, etc) and broadcast a stronger signal and it is done. How the implement a 2G BTS ? there are open sourced implementation on github. 
+https://github.com/osmocom (OpenBSC Osmo-Trx Osmo-Bts... EOL but usefull) or (Network in the Box Updated)
+https://github.com/RangeNetworks/openbts
+https://github.com/vir/yate
 
-   ![diagrone.png.png)
-   ![2G Attack Active](diagram_2G_act.png)
+To install it I have scripted it for example for OpenBSC :
 
-   Ths is the flow of a 2G active attack
+.. code-block:: bash
 
-
-   ## Hacking 2G (Fooling MS : Mobile Station, the 2G phone)
-   The MS doesn't ask authentication from BTS (Base Transceiver Station, the relay antenna). So what to do to intercept ? Be a BTS... and that's all just spoof the public values of the BTS (mcc,mnc exemple 208,15 for FreeMobile 208,01 for Orange, etc) and broadcast a stronger signal and it is done. How the implement a 2G BTS ? there are open sourced implementation on github. 
-   https://github.com/osmocom (OpenBSC Osmo-Trx Osmo-Bts... EOL but usefull) or (Network in the Box Updated)
-   https://github.com/RangeNetworks/openbts
-   https://github.com/vir/yate
-
-   To install it I have scripted it for example for OpenBSC :
-   ```bash
    #!/bin/bash
    read -p "Architecture ? amd64, armel, arm64 ?" ARCH
    apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32 40976EAF437D05B5
