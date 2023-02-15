@@ -4,7 +4,10 @@
 
 An active 2G active should look like this :
 
-![diagrone.png.png)
+
+.. image:: one.png
+   :target: one.png
+   :alt: 2G Attack Active
 
 .. image:: diagram_2G_act.png
    :target: diagram_2G_act.png

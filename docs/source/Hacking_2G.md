@@ -7,7 +7,7 @@
 An active 2G active should look like this :
 
 
-![diagrone.png.png)
+![2G Attack Active](one.png)
 ![2G Attack Active](diagram_2G_act.png)
 
 Ths is the flow of a 2G active attack
