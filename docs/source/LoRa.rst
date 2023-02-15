@@ -1,8 +1,9 @@
-**Lora :**
---------------
+----
+Lora
+----
 
-**GPS tracker via LoraWAN**
--------------------------------
+GPS tracker via LoraWAN
+-----------------------
 
 
 .. image:: uml.png
