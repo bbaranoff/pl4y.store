@@ -5,7 +5,7 @@ Welcome (Back)
 
 .. toctree::
 
-   Hacking_2G
-   Hacking_4G_Redirection
-   Hacking_2G_BaseStation
-   LoRa   
+   Hacking_2G.rst
+   Hacking_4G_Redirection.rst
+   Hacking_2G_BaseStation.rst
+   LoRa.rst
