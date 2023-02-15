@@ -1,31 +1,3 @@
----
-title: "Works"
-author: "Bastien Baranoff"
-header-includes:
-- \usepackage{fancyhdr}
-- \pagestyle{fancy}
-- \fancyfoot[CO,CE]{RadioFrequencies Protocols vs Energy}
-output:
-  pdf_document:
-    toc: true
-    df_print: kable
-  word_document: default
-date: "`r Sys.Date()`"
-bibliography: Mon_super_rapport.bib
----
-
-```{r setup, include=FALSE, echo=FALSE, warning=FALSE}
-library(pander)
-library(knitr)
-library(memisc)
-library(stargazer)
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
-
-\newpage
-
 **Radio-Frequencies Protocols :**
 ---------------------------------
 
@@ -38,19 +10,6 @@ Another goals came obviously from the first depending on the case of use : spend
 
 We will begin by enumerate some radio protocols, begin by saying their purpose. Then we gonna try to classify theses protocols by energy, data (raw and useful payload), power, range, frequencies and yield, security, latency, and error.
 
---------------------------------------
-**List (non-exhaustive) of Protocols**
---------------------------------------
-
-
-```{r, echo=FALSE}
-library("readxl")
-proto<-read_excel("protocols_glossary.xlsx",1)
-head(proto,22)
-```
-
-
-\newpage
 
 -------------------
 **Radio-Telephony**
