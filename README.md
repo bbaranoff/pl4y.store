@@ -1,2 +1,2 @@
 # pl4y.store
-pl4y.rtfd.io
+https://pl4y.rtfd.io
