@@ -7,18 +7,32 @@ output:
   rmdformats::downcute:
     self_contained: yes
     default_style: light
+    default_theme: chaos
+    highlight-style: atom-one-dark
   html_document:
     toc: yes
     toc_depth: '2'
     df_print: paged
   pdf_document:
-    latex_engine: xelatex
     toc: yes
     toc_depth: 2
-    highlight: kate
+    citation_package: natbib
+    latex_engine: xelatex
+    template: "../paradox-seraph.tex"
 bibliography: bibliography.bib  
 always_allow_html: true
----   
+code-fold: true
+code-copy: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE)
+library(plantuml)
+
+```
+
+
 \newpage
 ```
 1
@@ -94,6 +108,8 @@ Bugs!
 \newpage
 
 # Hello World !
+
+
 
 This is how it begin ?
 So why telecom ? Cause I have skills with ! Honestly was guided by security and wanted to be independant outside society but we have to live in... So what is to be independant : I think have money sorry if this is materialist but until  you prove the opposite we can't live without... Even commandos in nature have shoes ;) and they have to buy it. So the link between telecommunication and money ? Incomming SMS ! Paypal Verification, etc and I didn't want to abuse of trust and didn't want to search the 815e vulnerability in PHP. I wanted an always working hack or almost always working... So what is the way ?
@@ -644,7 +660,14 @@ Hey ! We gonna pretend that we are the MS in front of the BTS !
 
 ## Hacking 2G BTS
 
-
+```{r, echo=FALSE, warning=FALSE}
+library(DiagrammeR)
+mermaid('
+sequenceDiagram
+    Client->>Server: Login (Username, Password)
+    Server-->>Client: 200 OK & JWT
+')
+```
 [![Attack Flow](test3.png)](test3.png)
 
 The UE has become an MS again and we know how to be a BTS !

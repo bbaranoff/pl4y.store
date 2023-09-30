@@ -1,17 +1,15 @@
 ---
 output:
   pdf_document:
-    toc: true
+    toc: yes
     toc_depth: 2
     citation_package: natbib
     latex_engine: xelatex
-    template: ../paradox-seraph.tex
+    template: "../paradox-seraph.tex"
 bibliography: bibliography.bib
-
-
 ---
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```
@@ -1152,6 +1150,26 @@ diff -ru openbsc/openbsc/src/libmsc/gsm_04_08.c bsc-2rfa/openbsc/src/libmsc/gsm_
 +   ar->key_seq = kandy_seq;
 ```
 
+```{r, echo=FALSE}
+library(DiagrammeR)
+
+mermaid("
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->Alice: Great!
+    John->Bob: How about you?
+    Bob-->John: Jolly good!
+")
+
+```
+  
+
 # Install
 
 ## Installing BTS-Evil
@@ -1760,7 +1778,6 @@ library(DiagrammeR)
 
 # Création de la structure de données
 mermaid("
-
 gantt
 
 dateFormat  YYYY-MM-DD
@@ -1799,12 +1816,21 @@ Application                         :active,      fin_2,     after fin_1, 1w
 Rédaction du diaporama              :crit,        fin_3,     after fin_2, 48h
 
 ")
+```
+
+
+# Example Plot
+
+
+
+
+
+
 
 ```
 
-\cite{*}
-
 # Apendix
+
 \newpage
 
 # Examen sécurité de l'information
@@ -2186,5 +2212,5 @@ So\...
 ![](2022-03-29-211047_4.jpg)
 
 
-
+\cite{*}
 
