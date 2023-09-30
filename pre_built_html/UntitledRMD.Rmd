@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output:
   rmdformats::downcute:   
     self_contained: true
-    default_style: "dark"
+    default_style: "light"
     downcute_theme: "chaos"
 ---   
 
