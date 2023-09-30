@@ -1805,6 +1805,7 @@ Rédaction du diaporama              :crit,        fin_3,     after fin_2, 48h
 \cite{*}
 
 # Apendix
+\newpage
 
 # Examen sécurité de l'information
 
@@ -2087,6 +2088,8 @@ en clair sur le réseau.
 Perspectives : Mise en place d'une boîte noire qui intercepte l'ensemble
 des trames (en clair si possible) qui les stocke, impossibles d'accès
 sans procédure judiciaire.
+
+\newpage
 
 # Curriculum Vitae
 
