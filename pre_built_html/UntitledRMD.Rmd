@@ -1,13 +1,13 @@
 ---
 title: "Mémoire(s)"
-output:  
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
-    math: katex
-
-bibliography: bibliography.bib
----
+author: "Bastien Baranoff"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:   
+    self_contained: true
+    default_style: "dark"
+    downcute_theme: "chaos"
+---   
 
 ```
 1
@@ -94,25 +94,34 @@ https://github.com/RangeNetworks/openbts
 https://github.com/vir/yate
 
 To install it I have scripted it for example for OpenBSC :
-` `{r setup, include=FALSE, echo=FALSE, warning=FALSE} library(pander) library(knitr) library(memisc) library(stargazer) knitr::opts_chunk$set(echo = TRUE)  
-.. code-block::        \newpage     
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE} 
+library(pander) 
+library(knitr) 
+library(memisc) 
+library(stargazer)
+knitr::opts_chunk$set(echo = TRUE)  
+```
+\newpage 
+
 **Radio-Frequencies Protocols :**
 ---------------------------------     
 
 A protocol is for computing (quoted from Oxford langage):    
 "A set of rules governing the exchange or transmission of data between devices."    <https://www.oed.com/>.
 The goal like it is said is to make travel information from A->B, and (maybe) then B->A etcaetera. This information has a weight and it has to move so : energy is spent, at least F(A->B).
-Another goals came obviously from the first depending on the case of use : spending the less energy possible, have the maximum range, transmit the most data possible, have the best yield, and be the most secure possible (I mean by that, that it can't be understood by a machine or an human on an undesired endpoint in a reasonable time at least at the time of conception and from the projected advances in technology), there are also another important points the latency, and the errors between the message sent and received.       We will begin by enumerate some radio protocols, begin by saying their purpose. Then we gonna try to classify theses protocols by energy, data (raw and useful payload), power, range, frequencies and yield, security, latency, and error.     --------------------------------------    
+Another goals came obviously from the first depending on the case of use : spending the less energy possible, have the maximum range, transmit the most data possible, have the best yield, and be the most secure possible (I mean by that, that it can't be understood by a machine or an human on an undesired endpoint in a reasonable time at least at the time of conception and from the projected advances in technology), there are also another important points the latency, and the errors between the message sent and received.       We will begin by enumerate some radio protocols, begin by saying their purpose. Then we gonna try to classify theses protocols by energy, data (raw and useful payload), power, range, frequencies and yield, security, latency, and error.     
+
+--------------------------------------    
 **List (non-exhaustive) of Protocols**
 -------------------------------------- 
 ```{r, echo=FALSE}
 
   library("readxl")
-  proto<-read_excel("protocols_glossary.xlsx",1)
-  head(proto,22)
+  knitr::kable(read_excel("protocols_glossary.xlsx",1))
 ```
 
-newpage
+
+\newpage
 
 ------------------------------------------------------------------------
 
@@ -147,8 +156,7 @@ For others Operator (GSM)
 
 ```{r, echo=FALSE}
     library("readxl")
-    mydata<-read_excel("mytab.xlsx",1)
-    head(mydata) 
+    knitr::kable(read_excel("mytab.xlsx",1))
 ```
 Free = ? (Free didn't invest much in 2G antenna since 2G will die in 2025 in France the use Orange roaming )
 
