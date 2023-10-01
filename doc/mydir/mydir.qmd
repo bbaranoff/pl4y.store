@@ -9,7 +9,7 @@ abstract: |
 
 ---
 ---
-theme: "solar" # {html, revealjs} ["default", "cerulean", "cosmo", ...] Name of a
+theme: "vapor" # {html, revealjs} ["default", "cerulean", "cosmo", ...] Name of a
                 # built-in HTML Bootswatch theme, or link to a Sassy Cascading
                 # Style Sheets (SCSS) file
 pdf-engine: "tinytex" # {pdf, beamer} Toolchain for generating the PDF
