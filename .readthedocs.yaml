@@ -19,3 +19,6 @@ build:
       - export PATH=$PATH:/home/docs/checkouts/readthedocs.org/user_builds/pl4y/checkouts/latest/quarto-cli/package/dist/bin && cd docs && quarto render pl4y.qmd --output index.html
       - mkdir -p docs/_static
       - cp -r docs/* docs/_static
+  commands:
+    - mkdir --parents _readthedocs/html/
+    - cp --recursive doc/* _readthedocs/html/
