@@ -5,6 +5,7 @@ date: today
 format:
   bookup-html:
     embed-fonts: true
+    theme: dark
 toc: true
 ---
 
