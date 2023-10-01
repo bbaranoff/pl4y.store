@@ -141,7 +141,6 @@ citation:
   title: Language Models are Few-Shot Learners
   submitted: 2020-07-22
   publisher: arXiv
-  doi = 10.48550/ARXIV.2005.14165
 ---
 
 
