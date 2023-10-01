@@ -164,16 +164,6 @@ keywords: ["data", "marketing"] # {html, pdf, revealjs, beamer} List of keywords
 ---
 
 
----
-template: "tmplt.html" # {html, pdf, odt, revealjs, beamer, gfm, commonmark,
-                      # mediawiki, epub} Path to HTML/LaTeX template to override
-                      # the document structure or content
-template-partial: "tmpltp.html" # {html, pdf, odt, revealjs, beamer, gfm,
-                                # commonmark, mediawiki, epub} Path to HTML/LaTeX
-                                # template to override parts of document
----
-
-
 ```
 1
 00:00:57,265 --> 00:00:58,975
