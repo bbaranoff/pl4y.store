@@ -14,6 +14,7 @@ build:
   jobs:
     pre_build:
       - echo $PATH
-      - wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.361/quarto-1.3.361-linux-amd64.tar.gz && mkdir ~/opt && tar -C ~/opt -xvzf quarto-1.3.361-linux-amd64.tar.gz
-      - cd docs/ && make install
-      - quarto render pl4y.qmd --output index.html
+      - git clone https://github.com/quarto-dev/quarto-cli
+      - cd quarto-cli
+      - ./configure.sh
+      - cd ~ && quarto render pl4y.qmd --output index.html
