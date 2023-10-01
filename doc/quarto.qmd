@@ -13,6 +13,7 @@ output:
     toc: yes
     toc_depth: '2'
     df_print: paged
+    theme: dark
   pdf_document:
     toc: yes
     toc_depth: 2
