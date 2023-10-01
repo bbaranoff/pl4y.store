@@ -1,0 +1,102 @@
+---
+title: "APOGÉ - l'intelligence Artificielle en Périphérie pOur l'aGriculture de prÉcision"
+author: "Bastien Baranoff"
+date: "2023-04-16"
+output:
+  html_document:
+    theme: flatly
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+
+# 1 - Introduction
+
+De nos jours, l'agriculture nécessite une attention particulière pour éviter une mauvaise utilisation des pesticides et de l'eau, par exemple. Pour être en mesure de faire face à cela, l'agriculteur doit savoir ce qu'il peut et ne peut pas faire. Cette thèse a pour prétention de combler l'écart entre les connaissances des agriculteurs et des informaticiens. De cette manière, nous devons intégrer les connaissances des agriculteurs et proposer quelque chose de facile à utiliser pour l'aider à devenir un utilisateur final de thèmes tels que l'IA ou LoRa. Il est dommage qu'à partir de maintenant, il ne puisse pas utiliser ces technologies alors qu'elles seraient des outils vraiment utiles pour superviser et agir sur ses champs.
+
+# 2 - Contexte
+
+## Les besoins de l'agriculture de précision
+
+L'agriculture de précision vise à maximiser la production tout en minimisant l'utilisation des ressources naturelles et en réduisant les impacts environnementaux. Cela nécessite une collecte précise de données sur les sols, les cultures et les conditions météorologiques, ainsi qu'une surveillance continue des conditions de croissance pour permettre des interventions en temps réel. L'agriculture de précision repose sur des technologies avancées telles que l'intelligence artificielle (IA), les capteurs, les drones et les systèmes de communication en réseau.
+
+## Les défis actuels de l'agriculture de précision
+
+L'un des principaux défis de l'agriculture de précision est de combiner efficacement les connaissances agronomiques avec les technologies avancées. Les agriculteurs ont souvent une connaissance pratique approfondie de leurs cultures et de leurs sols, mais ils peuvent manquer de compétences en informatique pour tirer le meilleur parti des technologies de précision. D'autre part, les ingénieurs et les informaticiens peuvent avoir une compréhension limitée des besoins et des contraintes du monde agricole, ce qui peut entraîner des solutions techniques qui ne sont pas adaptées à la réalité du terrain.
+
+# 3 - Solution proposée : APOGÉ
+
+Pour répondre à ces défis, nous avons développé APOGÉ - l'intelligence Artificielle en Périphérie pOur l'aGriculture de prÉcision. Il s'agit d'une solution de surveillance et de contrôle de l'agriculture de précision basée sur l'IA, qui utilise des capteurs décentralisés pour collecter des données en temps réel sur les conditions de croissance des cultures. Les données sont traitées localement, sans avoir besoin d'une connexion Internet constante, ce qui permet d'économiser de l'énergie et de réduire les coûts de communication.
+
+APOGÉ utilise des algorithmes d'apprentissage automatique pour analyser les données collectées et fournir des recommandations précises pour optimiser la production de cultures. Les recommandations sont présentées à l'agriculteur sous forme de
+
+# 4 - Processus :
+
+Nous avons choisi d’utiliser un drone pour survoler les champs de l’agriculteur et vérifier ses plantations. Nous avons choisi le processeur NVIDIA Jetson pour le traitement des données avec l’IA utilisant Edge pour éviter autant que possible l’utilisation du cloud. En effet, Jetson devrait suffire pour une première vue de ce projet. Et aussi longtemps qu’il s’agit d’électronique embarquée, la dissipation de puissance devrait être inférieure à celle d’un ordinateur traditionnel et nous pouvons le placer sur le drone. Les moyens de communication se feront par Wi-Fi et LoRa :
+
+- Wi-Fi pour la collecte de données massive
+- LoRa pour traiter les requêtes précises et ciblées
+
+# 5 - Méthodologie 
+
+Pour commencer, nous devrons définir les exigences de notre système, qui seront basées sur les besoins exprimés dans la section précédente. Cela nous permettra de déterminer les composants matériels et logiciels nécessaires pour construire notre solution. Ensuite, nous concevrons l’architecture globale de notre système, en prenant en compte les différents composants matériels et logiciels nécessaires. Cette étape nous permettra d’identifier les éventuels points de blocage ou de dysfonctionnement de notre solution, ainsi que les solutions à apporter.
+
+Après avoir conçu l’architecture globale, nous nous concentrerons sur la mise en place des différents composants de notre système. Cela inclura notamment l’installation et la configuration de tous les logiciels nécessaires, ainsi que le déploiement du matériel sur site.
+
+Une fois que tous les composants auront été installés et configurés, nous procéderons à des tests de validation pour nous assurer que notre solution répond aux exigences fonctionnelles et non fonctionnelles définies précédemment. Nous effectuerons également des tests de performance pour nous assurer que notre système peut traiter les données dans des délais raisonnables.
+
+Enfin, nous livrerons le système au client, accompagné d’une documentation complète sur son fonctionnement, sa maintenance et sa gestion. Nous formerons également le personnel du client sur l’utilisation du système et fournirons un support technique pour répondre à toutes les questions ou problèmes éventuels. Nous allons utiliser le service cloud de WeeNat (https://weenat.com/) pour cette étude.
+
+# 6 - Enjeux et anticipations:
+- La surveillance et l’utilisation d’un champ agricole par EDGE-IA permettront de réduire les coûts pour l’utilisateur.
+- Préservation de l’écosystème (avec la détection des maladies, l’agriculteur peut éviter d’utiliser des pesticides et ne traiter que les maladies qui affectent ses parcelles).
+- Partager ses données en échange d’argent ou d’autres données.
+- Apposer une étiquette indiquant qu’il n’a pas utilisé de pesticides et que ses cultures sont saines.
+
+# 7 - Motivations
+
+Passionné de radio-télécommunications depuis 10 ans, je suis ravi de partager mes connaissances avec ceux qui peuvent les comprendre. Avec des compétences en télécommunications mobiles (GSM -> 5G-SA) et en LoRa, je suis bien placé pour aborder le sujet proposé. Peu de personnes sont capables de comprendre ces protocoles, ce qui me donne une perspective unique sur le sujet.
+
+Mon handicap m'a obligé à travailler de manière non académique, mais j'ai appris à être autonome dans mes recherches depuis des années. J'ai également des compétences en électronique et en informatique qui peuvent être utiles pour ce projet. L'électronique embarquée est exactement le domaine de recherche de mes compétences, et j'aime être confronté à de nouveaux défis.
+
+J'ai l'habitude de travailler avec du matériel bon marché, comme les clones électroniques chinois, et de les faire fonctionner avec peu de documentation. J'ai également de l'expérience en rétro-ingénierie pour faire fonctionner d'anciens logiciels. La sécurité en radio-télécommunications est un sujet qui m'intéresse particulièrement. Je préfère cela plutôt que le domaine de la sécurité TCP/IP, qui est traité par des personnes plus compétentes que moi.
+
+La radio n'est pas largement étudiée par la plupart des gens, mais je peux écouter un téléphone jusqu'à LTE (Long Term Evolution) et Android 11, tant que le téléphone est dans ma plage de fréquences radio. Passionné de Linux depuis des années également (il est livré avec les télécommunications), je suis compétent en bash, C et réseaux. J'ai appris à lire de longs codes et à m'en sortir avec ceux-ci. J'ai également l'expérience de plusieurs architectures, comme les 32 bits, AMD64, ARM, ARM64, RISC-V, ESP32, Arduino microcontrôleurs, STM32, et je pense que le Jetson Nano (ARM64) ne sera pas trop difficile à utiliser pour moi.
+
+Je suis autonome et je n'ai pas besoin de beaucoup de soutien tant que j'ai travaillé sans cela depuis des années. J'ai peu travaillé avec l'IA, mais je suis capable de l'utiliser. J'ai testé quelques scripts Python utilisant Kaggle. J'ai également des compétences en enseignement, ayant été enseignant au lycée Déodat de Severac de Céret. J'ai également présenté à l'Université de Perpignan via Domitia.
+
+J'ai souhaité obtenir un doctorat depuis de nombreuses années, mais ma maladie ne m'a pas aidé dans cette entreprise. Cependant, cela m'a rendu plus résilient et j'ai appris à ne pas être trop fier. Avec plusieurs domaines d'expérience et de compétences ainsi que des diplômes anciens, j'espère que vous accepterez mon projet de thèse. Ce serait un honneur pour moi de faire de mon mieux pour le mener à bien.
+
+Cordialement,
+
+- Bastien Baranoff
+
+```
+library(ggplot2)
+library(ggantt)
+
+# Création de la structure de données
+taches <- data.frame(
+  tache = c("Analyse bibliographique", "Conception du plan de recherche", "Collecte de données", 
+            "Analyse de données", "Rédaction du manuscrit", "Relecture et correction"),
+  debut = c(as.Date("2023-04-17"), as.Date("2023-07-01"), as.Date("2023-09-01"),
+            as.Date("2024-06-01"), as.Date("2025-01-01"), as.Date("2025-09-01")),
+  fin = c(as.Date("2023-06-30"), as.Date("2024-05-31"), as.Date("2024-12-31"),
+          as.Date("2025-08-31"), as.Date("2026-05-31"), as.Date("2026-09-30")),
+  duree = as.numeric(as.Date(c("2023-06-30", "2024-05-31", "2024-12-31", "2025-08-31", "2026-05-31", "2026-09-30"))) - 
+    as.numeric(as.Date(c("2023-04-17", "2023-07-01", "2023-09-01", "2024-06-01", "2025-01-01", "2025-09-01")))
+)
+
+# Configuration du diagramme de Gantt
+g <- ggantt(taches, title="Gantt pour la réalisation du projet de thèse",
+            calendar="western-calendar",
+            date.breaks="1 month",
+            y.labels=taches$tache,
+            x.labels="",
+            show.grid="months")
+
+# Affichage du diagramme
+g
+```
+
