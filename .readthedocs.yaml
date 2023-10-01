@@ -16,4 +16,4 @@ build:
       - echo $PATH
       - git clone https://github.com/quarto-dev/quarto-cli
       - cd quarto-cli && ./configure.sh
-      - export PATH=$PATH:~/quarto-cli/package/dist/bin/ && quarto render pl4y.qmd --output index.html
+      - export PATH=$PATH:/home/docs/checkouts/readthedocs.org/user_builds/pl4y/checkouts/latest/quarto-cli/package/dist/bin && quarto render docs/pl4y.qmd --output index.html
