@@ -131,7 +131,201 @@ link-external-newwindow: true # {html, revealjs} [false, true] Open external pag
 
 
 ---
+bibliography:"---
+title: "Quarterly Marketing Funnel Performance" # Title of the document
+date: "2023-12-25" # The date shown on the document
+author: "Mark Eting-Analyst" # Author(s) of the document
+subtitle: "Analysis of leads" # {html, pdf, odt, revealjs, beamer, epub} Subtitle of the document
+abstract: |
+
+  The leads went up 39%. 
+
+    # {html, pdf, odt, revealjs, beamer, epub} 
+
+    # A short summary of the document's contents
+---
+
+Styling
+
+---
+theme: "quartz" # {html, revealjs} ["default", "cerulean", "cosmo", ...] Name of a
+                # built-in HTML Bootswatch theme, or link to a Sassy Cascading
+                # Style Sheets (SCSS) file
+pdf-engine: "tinytex" # {pdf, beamer} Toolchain for generating the PDF
+reference-doc: "template.docx" # {docx, odt, pptx} Path to a file to use as a style reference
+quarto-required: ">= 1.2.0"
+---
+
+Table of contents
+
+---
+toc: true # [false, true] Include a table of contents in the document
+toc-depth: 2 # Least significant section header to include in table of contents
+---
+
+Section numbering
+
+---
+number-sections: true # [false, true] Should section headings be numbered?
+number-depth: 2 # {html, pdf, docx, revealjs, beamer, epub} Least significant section header to be numbered
+---
+
+Slides
+
+---
+incremental: true # {pptx, revealjs, beamer} [false, true] Should list items be
+
+                  # displayed one at a time or all at once?
+slide-level: 2 # {pptx, revealjs, beamer} What header level denotes a new slide?
+---
+
+Fonts
+
+---
+mainfont: "Baskerville" # {html, pdf, beamer} Font family for regular text
+monofont: "JetBrains Mono" # {html, pdf, beamer} Font family for code
+# Specify font families with CSS or LaTeX, depending upon the output format
+fontsize: 14 # {html, pdf, beamer} Set the base size of the font.
+---
+
+Colors
+
+---
+fontcolor: "#B06500" # {html} Color of text.
+linkcolor: "#007FFF" # {html, pdf, beamer} Color of link text.
+---
+
+Layout
+
+---
+cap-location: "top" # {html, pdf, revealjs, beamer} ["top", "bottom", "margin"]
+                    # Location of captions for figures and tables
+papersize: "a4paper" # {pdf, beamer} LaTeX paper size for the rendered document
+                    # Common values: letterpaper (USA), a4paper (rest of world)
+page-width: 8 # {docx, odt} [6.5] Width of page in rendered document, in inches
+margin-top: 20px # {html, pdf, revealjs, beamer} Top margin for the page
+                # Specify either a CSS margin property, or a LaTeX margin
+                # For other margins set margin-right, margin-bottom, margin-left
+---
+
+Code
+
+---
+code-line-numbers: true # {html, pdf, docx, revealjs, beamer, epub} [false, true]
+                        # Should line numbers be included for code?
+highlight-style: "breeze" # {html, pdf, docx, revealjs, beamer, epub} ["default",
+                          # "a11y", "arrow", ...] Theme for code highlighting
+code-fold: "show" # {html, revealjs, epub} [false, true, show] Should code be
+                  # contained in a collapsible HTML <details> block?
+                  # false: Don't put code in a collapsible block
+                  # true: Put code in a collapsible block; start block collapsed
+                  # "show": Put code in a collapsible block; start block expanded
+code-overflow: "wrap" # {html, revealjs, epub} ["scroll", "wrap"] How should long
+                      # lines of code behave?
+---
+
+Execution
+
+These options are sub-elements of the execute element, though they can also be used at the top-level of the YAML.
+
+---
+eval: false # [true, false] Should code cells be evaluated?
+echo: false # [true, false] Include cell source code in the rendered document?
+output: "asis" # [true, false, "asis"] Include the results of executing the code in
+              # the rendered document?
+              # "asis": Include the results, treating them as raw Markdown
+warning: false # [true, false] Display warnings in the rendered document?
+error: false # [true, false] Display errors in the rendered document?
+include: false # [true, false] Set echo, output, warning, and error together
+cache: false # [true, false, "refresh"] Cache the results of computations so
+            # repeated generation of the rendered document is faster
+            # "refresh": Force a refresh, even when cache has not been invalidated
+---
+
+Figures
+
+---
+fig-width: 8 # Width for figures in inches
+fig-height: 6 # Height for figures in inches
+fig-format: "png" # File format for figures (Matplotlib or R graphics only)
+fig-dpi: 300 # Figure resolution (Matplotlib or R graphics only) in dots per inch
+fig-align: "center" # {html, pdf, docx, odt, revealjs, beamer, epub} ["default",
+                    # "left", "right", "center"] Horizontal alignment of figures
+fig-cap-location: "bottom" # {html, pdf, revealjs, beamer} ["top", "bottom",
+                          # "margin"] Location of figure captions
+---
+
+Tables
+
+---
+tbl-colwidths: [70, 30] # ["auto", true, false, <array>] Should tables wider than
+                        # 72 characters have explicit column widths?
+                        # "auto": Use Markdown column widths unless the column
+                        # contains a hyperlink
+                        # true: Always use markdown column widths
+                        # false: Never use markdown table widths
+                        # <array>: Column widths as the %age of table width
+tbl-cap-location: "margin" # {html, pdf, revealjs, beamer} ["top", "bottom",
+                          # "margin"] Location of figure captions
+---
+
+Links
+
+---
+link-external-newwindow: true # {html, revealjs} [false, true] Open external pages
+                              # in a new browser tab?
+---
+
+References
+
+---
 bibliography: "refs.bib" # Path to BibTeX/Citation Style Language bibliography file
+---
+
+Citation
+
+---
+# How to cite the document, specified in Citation Style Language format
+citation:
+  title: Language Models are Few-Shot Learners
+  submitted: 2020-07-22
+  publisher: arXiv
+  doi = 10.48550/ARXIV.2005.14165
+---
+
+Footnotes
+
+---
+reference-location: "margin" # {html, pdf, revealjs, gfm, commonmark} ["block",
+                            # "section", "margin", "document"] Footnote location
+                            # block: End of current top-level block
+                            # section: End of current section
+                            # margin: At the margin
+                            # document: End of document
+---
+
+Language
+
+---
+lang: "fr-CA" # Main language for document in IETF language tag format
+---
+
+Metadata
+
+---
+keywords: ["data", "marketing"] # {html, pdf, revealjs, beamer} List of keywords
+---
+
+Rendering
+
+---
+template: "tmplt.html" # {html, pdf, odt, revealjs, beamer, gfm, commonmark,
+                      # mediawiki, epub} Path to HTML/LaTeX template to override
+                      # the document structure or content
+template-partial: "tmpltp.html" # {html, pdf, odt, revealjs, beamer, gfm,
+                                # commonmark, mediawiki, epub} Path to HTML/LaTeX
+                                # template to override parts of document
+ # Path to BibTeX/Citation Style Language bibliography file
 ---
 
 
