@@ -15,6 +15,5 @@ build:
     pre_build:
       - echo $PATH
       - git clone https://github.com/quarto-dev/quarto-cli
-      - cd quarto-cli
-      - ./configure.sh
+      - cd quarto-cli && ./configure.sh
       - cd ~ && quarto render pl4y.qmd --output index.html
