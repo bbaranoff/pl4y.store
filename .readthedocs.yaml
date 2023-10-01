@@ -5,7 +5,7 @@ sphinx:
 
 # Build all formats
 
-formats: html
+formats: all
 
 build:
   os: ubuntu-22.04
