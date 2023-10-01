@@ -10,7 +10,7 @@ formats: all
 build:
   os: ubuntu-22.04
   tools:
-    python: 3.7
+    python: "3.7"
   jobs:
     pre_build:
       - echo $PATH
