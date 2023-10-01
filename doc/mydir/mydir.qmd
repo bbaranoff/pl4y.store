@@ -115,6 +115,11 @@ A protocol is for computing (quoted from Oxford langage):\
 |----------------------------------------|
 | **List (non-exhaustive) of Protocols** |
 
+```
+library(rmarkdown)
+library(readxl)
+paged_table((read_excel("protocols_glossary.xlsx",1)))
+```
 
 ------------------------------------------------------------------------
 
