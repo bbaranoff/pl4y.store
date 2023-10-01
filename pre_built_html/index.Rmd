@@ -7,7 +7,7 @@ output:
   rmdformats::downcute:
     self_contained: yes
     default_style: light
-    default_theme: chaos
+    default_theme: ./style.css
     highlight-style: atom-one-dark
   html_document:
     toc: yes
@@ -21,7 +21,6 @@ output:
     template: "../paradox-seraph.tex"
 bibliography: bibliography.bib  
 always_allow_html: true
-code-fold: true
 code-copy: true
 ---
 
@@ -31,6 +30,16 @@ knitr::opts_chunk$set(
 library(plantuml)
 
 ```
+
+----------------------- ------------------------------------
+![Tip](add_endevice.png)\ Table multiline text bla bla bla bla
+                        bla bla bla bla bla bla bla ... the
+                        blank line below is important 
+
+----------------------------------------------------------------
+
+
+
 
 
 \newpage
@@ -131,10 +140,12 @@ Another goals came obviously from the first depending on the case of use : spend
 --------------------------------------    
 **List (non-exhaustive) of Protocols**
 -------------------------------------- 
-```{r, echo=FALSE}
 
-  library("readxl")
-  knitr::kable(read_excel("protocols_glossary.xlsx",1))
+
+```{r, echo=FALSE,layout="l-body-outset", class.source = "bg-success"}
+library(rmarkdown)
+library(readxl)
+paged_table((read_excel("protocols_glossary.xlsx",1)))
 ```
 
 
@@ -169,9 +180,10 @@ in accordance with the definitions in appendix 1:
 
 For others Operator (GSM)
 
-```{r, echo=FALSE}
-    library("readxl")
-    knitr::kable(read_excel("mytab.xlsx",1))
+```{r, echo=FALSE,layout="l-body-outset", class.source = "bg-success"}
+library(rmarkdown)
+library(readxl)
+paged_table((read_excel("mytab.xlsx",1)))
 ```
 Free = ? (Free didn't invest much in 2G antenna since 2G will die in 2025 in France the use Orange roaming )
 
@@ -2215,9 +2227,19 @@ print("python")
 So\...
 
 ![](2022-03-29-211047_4.jpg)
+```{r, echo=FALSE}
+library("cli")
+  clean <- function() {
+  cli_progress_bar("Cleaning data", total = 100)
+  for (i in 1:100) {
+    Sys.sleep(5/100)
+    cli_progress_update()
 
-
-
+  }
+}
+  
+clean()
+```
 # Bibliography
 
 ---

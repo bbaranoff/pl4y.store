@@ -7,10 +7,10 @@ output:
     latex_engine: xelatex
     template: "../paradox-seraph.tex"
 bibliography: bibliography.bib
+always_allow_html: true
+
 ---
 
-```{r setup, include=FALSE}
-```
 
 ```
 
@@ -84,7 +84,11 @@ Bugs, this feels like a trap.
 Bugs!
 ```
 
-
+```{r, layout="l-body-outset"}
+library(rmarkdown)
+library(readxl)
+paged_table((read_excel("protocols_glossary.xlsx",1)))
+```
 
 **Hello World !**
 =================
@@ -2211,6 +2215,9 @@ So\...
 
 ![](2022-03-29-211047_4.jpg)
 
+
+```{r setup, include=FALSE}
+```
 
 \cite{*}
 
