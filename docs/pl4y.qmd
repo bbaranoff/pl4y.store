@@ -1,4 +1,3 @@
----
 title: "Quarterly Marketing Funnel Performance" # Title of the document
 date: "2023-12-25" # The date shown on the document
 author: "Mark Eting-Analyst" # Author(s) of the document
