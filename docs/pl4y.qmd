@@ -221,7 +221,7 @@ link-external-newwindow: true # {html, revealjs} [false, true] Open external pag
 
 
 ---
-bibliography: "bibliogrphy.bib" # Path to BibTeX/Citation Style Language bibliography file
+bibliography: "bibliography.bib" # Path to BibTeX/Citation Style Language bibliography file
 ---
 
 
