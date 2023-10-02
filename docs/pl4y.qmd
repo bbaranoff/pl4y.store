@@ -5,7 +5,9 @@ author: "Bastien Baranoff" # Author(s) of the document
 subtitle: "Pentesting and analyse telecommunications processes" # {html, pdf, odt, revealjs, beamer, epub} Subtitle of the document
 abstract: |
 
-	This is an abstarct of works that I have done up to now
+      This is an abstarct of works that I have done up to now.
+
+      #{html}
 
 ---
 
