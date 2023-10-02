@@ -221,7 +221,7 @@ link-external-newwindow: true # {html, revealjs} [false, true] Open external pag
 
 
 ---
-bibliography: "refs.bib" # Path to BibTeX/Citation Style Language bibliography file
+bibliography: "bibliogrphy.bib" # Path to BibTeX/Citation Style Language bibliography file
 ---
 
 
@@ -254,15 +254,6 @@ keywords: ["data", "marketing"] # {html, pdf, revealjs, beamer} List of keywords
 ---
 
 
----
-template: "tmplt.html" # {html, pdf, odt, revealjs, beamer, gfm, commonmark,
-                      # mediawiki, epub} Path to HTML/LaTeX template to override
-                      # the document structure or content
-template-partial: "tmpltp.html" # {html, pdf, odt, revealjs, beamer, gfm,
-                                # commonmark, mediawiki, epub} Path to HTML/LaTeX
-                                # template to override parts of document
- # Path to BibTeX/Citation Style Language bibliography file
----
 
 
 ```
