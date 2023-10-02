@@ -50,8 +50,8 @@ fontsize: 14 # {html, pdf, beamer} Set the base size of the font.
 
 
 ---
-fontcolor: "#B06500" # {html} Color of text.
-linkcolor: "#007FFF" # {html, pdf, beamer} Color of link text.
+fontcolor: "#0080FF" # {html} Color of text.
+linkcolor: "#CD5C5C" # {html, pdf, beamer} Color of link text.
 ---
 
 
