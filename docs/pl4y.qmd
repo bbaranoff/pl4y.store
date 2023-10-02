@@ -1,19 +1,17 @@
-title: "Quarterly Marketing Funnel Performance" # Title of the document
-date: "2023-12-25" # The date shown on the document
-author: "Mark Eting-Analyst" # Author(s) of the document
-subtitle: "Analysis of leads" # {html, pdf, odt, revealjs, beamer, epub} Subtitle of the document
+---
+title: "Mémoires" # Title of the document
+date: "1 octobre 2023" # The date shown on the document
+author: "Bastien Baranoff" # Author(s) of the document
+subtitle: "Pentesting and analyse telecommunications processes" # {html, pdf, odt, revealjs, beamer, epub} Subtitle of the document
 abstract: |
 
-  The leads went up 39%. 
+	This is an abstarct of works that I have done up to now
 
-    # {html, pdf, odt, revealjs, beamer, epub} 
-
-    # A short summary of the document's contents
 ---
 
 
 ---
-theme: "quartz" # {html, revealjs} ["default", "cerulean", "cosmo", ...] Name of a
+theme: "vapor" # {html, revealjs} ["default", "cerulean", "cosmo", ...] Name of a
                 # built-in HTML Bootswatch theme, or link to a Sassy Cascading
                 # Style Sheets (SCSS) file
 pdf-engine: "tinytex" # {pdf, beamer} Toolchain for generating the PDF
