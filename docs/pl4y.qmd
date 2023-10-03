@@ -1,5 +1,5 @@
 ---
-title: "Mémoires" # Title of the document
+title: "Mémoire(s)" # Title of the document
 date: "1 octobre 2023" # The date shown on the document
 author: "Bastien Baranoff" # Author(s) of the document
 subtitle: "Pentesting and analyse telecommunications processes" # {html, pdf, odt, revealjs, beamer, epub} Subtitle of the document
@@ -8,7 +8,6 @@ abstract: |
       This is an abstarct of works that I have done up to now.
 
       #{html}
-
 ---
 
 
@@ -45,7 +44,6 @@ slide-level: 2 # {pptx, revealjs, beamer} What header level denotes a new slide?
 mainfont: "Baskerville" # {html, pdf, beamer} Font family for regular text
 monofont: "JetBrains Mono" # {html, pdf, beamer} Font family for code
 # Specify font families with CSS or LaTeX, depending upon the output format
-fontsize: 14 # {html, pdf, beamer} Set the base size of the font.
 ---
 
 ---
@@ -79,58 +77,6 @@ code-fold: "show" # {html, revealjs, epub} [false, true, show] Should code be
 code-overflow: "wrap" # {html, revealjs, epub} ["scroll", "wrap"] How should long
                       # lines of code behave?
 ---
-
-
-
-
----
-fig-width: 8 # Width for figures in inches
-fig-height: 6 # Height for figures in inches
-fig-format: "png" # File format for figures (Matplotlib or R graphics only)
-fig-dpi: 300 # Figure resolution (Matplotlib or R graphics only) in dots per inch
-fig-align: "center" # {html, pdf, docx, odt, revealjs, beamer, epub} ["default",
-                    # "left", "right", "center"] Horizontal alignment of figures
-fig-cap-location: "bottom" # {html, pdf, revealjs, beamer} ["top", "bottom",
-                          # "margin"] Location of figure captions
----
-
-
----
-tbl-colwidths: [70, 30] # ["auto", true, false, <array>] Should tables wider than
-                        # 72 characters have explicit column widths?
-                        # "auto": Use Markdown column widths unless the column
-                        # contains a hyperlink
-                        # true: Always use markdown column widths
-                        # false: Never use markdown table widths
-                        # <array>: Column widths as the %age of table width
-tbl-cap-location: "margin" # {html, pdf, revealjs, beamer} ["top", "bottom",
-                          # "margin"] Location of figure captions
----
-
-
-
-
-
-
-
-
-
----
-eval: false # [true, false] Should code cells be evaluated?
-echo: false # [true, false] Include cell source code in the rendered document?
-output: "asis" # [true, false, "asis"] Include the results of executing the code in
-              # the rendered document?
-              # "asis": Include the results, treating them as raw Markdown
-warning: false # [true, false] Display warnings in the rendered document?
-error: false # [true, false] Display errors in the rendered document?
-include: false # [true, false] Set echo, output, warning, and error together
-cache: false # [true, false, "refresh"] Cache the results of computations so
-            # repeated generation of the rendered document is faster
-            # "refresh": Force a refresh, even when cache has not been invalidated
----
-
-
-
 
 ---
 link-external-newwindow: true # {html, revealjs} [false, true] Open external pages
@@ -256,15 +202,14 @@ This is how it begin ? So why telecom ? Cause I have skills with ! Honestly was 
 A protocol is for computing (quoted from Oxford langage):\
 "A set of rules governing the exchange or transmission of data between devices." <https://www.oed.com/>. The goal like it is said is to make travel information from A-\>B, and (maybe) then B-\>A etcaetera. This information has a weight and it has to move so : energy is spent, at least F(A-\>B). Another goals came obviously from the first depending on the case of use : spending the less energy possible, have the maximum range, transmit the most data possible, have the best yield, and be the most secure possible (I mean by that, that it can't be understood by a machine or an human on an undesired endpoint in a reasonable time at least at the time of conception and from the projected advances in technology), there are also another important points the latency, and the errors between the message sent and received. We will begin by enumerate some radio protocols, begin by saying their purpose. Then we gonna try to classify theses protocols by energy, data (raw and useful payload), power, range, frequencies and yield, security, latency, and error.
 
-|                                        |
-|----------------------------------------|
-| **List (non-exhaustive) of Protocols** |
+**List (non-exhaustive) of Protocols**
 
+```{r, echo=FALSE}
+myxlsx <- readxl::read_excel("protocols_glossary.xlsx")
+rmarkdown::paged_table(myxlsx)
 ```
-library(rmarkdown)
-library(readxl)
-paged_table((read_excel("protocols_glossary.xlsx",1)))
-```
+
+
 
 ------------------------------------------------------------------------
 
@@ -288,6 +233,10 @@ paged_table((read_excel("protocols_glossary.xlsx",1)))
 
 For others Operator (GSM)
 
+```{r, echo=FALSE}
+mydata <- readxl::read_excel("mytab.xlsx",1)
+rmarkdown::paged_table(head(mydata)) 
+```
 
 Free = ? (Free didn't invest much in 2G antenna since 2G will die in 2025 in France the use Orange roaming )
 
