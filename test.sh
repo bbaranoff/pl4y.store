@@ -1,2 +1,2 @@
-cat test | R --save
+cat test | /usr/bin/R --save
 

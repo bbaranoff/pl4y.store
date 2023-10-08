@@ -16,7 +16,6 @@ build:
   - r-base-html
   tools:
     python: "3.7"
-    R: "4.3.1"
   commands:
       - echo $PWD
       - bash test.sh
