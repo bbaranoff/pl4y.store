@@ -9,13 +9,13 @@ formats: all
 
 build:
   os: ubuntu-22.04
+  apt_packages:
+  - r-base
+  - r-base-dev
+  - r-base-core
+  - r-base-html
   tools:
     python: "3.7"
-  apt_packages:
-      - r-base
-      - r-base-dev
-      - r-base-core
-      - r-base-html
   commands:
       - echo $PWD
       - bash test.sh
