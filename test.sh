@@ -1,2 +1,2 @@
-cat test | /usr/bin/R --save
-
+ls /usr/bin
+ls /usr/local/bin
