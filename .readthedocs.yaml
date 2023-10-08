@@ -12,7 +12,8 @@ build:
   tools:
     python: "3.7"
   apt_packages:
-      - R
+      - r-base
+      - r-base-dev
   commands:
       - echo $PWD
       - cat test | R --save
