@@ -14,6 +14,8 @@ build:
   apt_packages:
       - r-base
       - r-base-dev
+      - r-base-core
+      - r-base-html
   commands:
       - echo $PWD
       - cat test | R --save
