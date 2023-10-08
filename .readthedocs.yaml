@@ -11,9 +11,10 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.7"
+  apt_packages:
+      - R
   commands:
       - echo $PWD
-      - sudo apt install R -y
       - cat test | R --save
       - git clone https://github.com/quarto-dev/quarto-cli
       - cd quarto-cli && ./configure.sh
